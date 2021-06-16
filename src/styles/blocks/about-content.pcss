@@ -1,0 +1,27 @@
+.about{
+  &__subtitle{
+    margin-bottom: 20px;
+    color: rgba($dark,.8);
+  }
+  &__title{
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+  &__desc{
+    margin-bottom: 70px;
+    font-weight: 600;
+  }
+  &__ps{
+    color: rgba($dark,.8);
+    position: relative;
+    &:before{
+      content: "*";
+      position: absolute;
+      display: block;
+      font-size: 48px;
+      color: rgba(#DB0200,.5);
+      top: -10px;
+      left: -40px;
+    }
+  }
+}

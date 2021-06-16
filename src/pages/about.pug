@@ -1,22 +1,26 @@
-.about 
-  .about__person 
-    .about__avatar
-    ul.about__info
-      li.about__item
-        p.about__info__title Проживаю:
-        p.about__info__subtitle Новосибирск
-      li.about__item 
-        p.about__info__title Возвраст:
-        p.about__info__subtitle 27 лет
-      li.about__item
-        p.about__info__title Родился:
-        p.about__info__subtitle 1 января 1991 
-  .about__text
-    .about__subtitle
+.about
+  .about__user
+    .user
+      .user__avatar
+        .user__avatar-style 
+          +image('content/user.jpg','user__avatar-pic')
+    -
+      var userInfo = [
+        ['Проживаю','Новосибирск'],
+        ['Возвраст','27 лет'],
+        ['Родился',"1 января 1991"],
+      ]
+    table.user__data
+      each item in userInfo
+        tr.user__data-row 
+          td.user__data-title #{item[0]}
+          td.user__data-content #{item[1]}
+  .about__content 
+    .about__subtitle 
       p Привет, меня зовут
-    .about__title
-      h2  Владимир Астаханов
-    .about__text2 
+    .about__title 
+      h2 Владимир Астаханов
+    .about__desc 
       p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-    .about__project
+    .about__ps 
       p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
