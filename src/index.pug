@@ -1,16 +1,21 @@
 extends ./pages/main.layout.pug
-include ./mixins.pug
 
-block layout 
-  section.section.section-hero
-    //- +image('content/main-bg.jpg','main-bg')
-    .container.container-hero
-      include ./pages/header.pug
-      include ./pages/hero.pug
-      .arrow
-        p.arrow__text Скролл
-        a.arrow_link(href="#")
-          .arrow__icon
-        //- +icon('link', 'link-class')
-    //- +image('content/user.jpg', 'user-pic')
-    //- .icon-bg
+block layout
+  .section-welcome
+    section.section.section-hero
+      .container.container-hero
+        include ./pages/header.pug
+        include ./pages/hero.pug
+        include ./pages/hero-btn.pug
+    section.section.section-about
+      .container.container-about
+        include ./pages/about.pug
+  section.section.section-skills 
+    .container.container-skills 
+      include ./pages/skills.pug
+  section.section.section-works 
+    .container.container-works 
+      include ./pages/works.pug
+          //- +icon('link', 'link-class')
+      //- +image('content/user.jpg', 'user-pic')
+      //- .icon-bg
