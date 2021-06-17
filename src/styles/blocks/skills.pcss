@@ -1,35 +1,27 @@
 .skills{
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 116px;
+
   &__wrapper{
-    max-width: 877px;
-  }
-  &__title{
-    margin-bottom: 53px;
-  }
-  &__subtitle{
-    color: rgba($dark,.8);
-    width: 65%;
-    margin-bottom: 79px;
-  }
-  &__block{
-    margin-left: 125px;
-    &-title{
-      margin-bottom: 40px;
-    }
-  }
-  &__list{
     display: flex;
-    margin-bottom: 60px;
+    justify-content: flex-end;
+  }
+  &__item{
+    margin-bottom: 54px;
     &:last-child{
       margin-bottom: 0;
     }
   }
-  &__item{
-    margin-right: 66px;
-    &:last-child{
-      margin: 0;
+  &-row{
+    &__list{
+      display: flex;
+    }
+    &__item{
+      margin-right: 66px;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+    &__title{
+      margin-bottom: 40px;
     }
   }
 }

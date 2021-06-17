@@ -11,9 +11,13 @@ block layout
       .container.container-about
         include ./pages/about.pug
   .section-middle
-    section.section.section-skills 
-      .container.container-skills 
-        include ./pages/skills.pug
+    include ./pages/triangles-top.pug
+    section.section.section-values 
+      .container.container-values
+        .value-wrapper
+          include ./pages/values.pug
+          include ./pages/skills.pug
+    include ./pages/triangles-bottom.pug
     section.section.section-works 
       .container.container-works 
         include ./pages/works.pug

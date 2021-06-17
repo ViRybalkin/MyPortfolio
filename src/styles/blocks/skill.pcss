@@ -1,77 +1,27 @@
 .skill{
-  display: flex;
-  border-radius: 50%;
-  width: 138px;
-  height: 138px;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  width: 166px;
+  height: 166px;
+  &__title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    color: rgba($dark,.5);
+    padding: 14px;
+  }
 }
 
-.skill__html{
-
-}
-
-.skill__html2{
-}
-.skill__css{
-  position: relative;
-  &:before{
-    position: absolute;
-    content: "";
-    display: block;
+.skill__circle{
+  fill: transparent;
+  &-layer-under{
+    stroke: #eaeaea;
+    stroke-width: 5px; 
   }
-}
-.skill__js{
-  position: relative;
-  &:before{
-    position: absolute;
-    content: "";
-    display: block;
-  }
-  
-}
-.skill__vue{
-  position: relative;
-  &:before{
-    position: absolute;
-    content: "";
-    display: block;
-
-  }
-  
-}
-.skill__git{
-  position: relative;
-  &:before{
-    position: absolute;
-    content: "";
-    display: block;
-  }
-  
-}
-.skill__terminal{
-  position: relative;
-  &:before{
-    position: absolute;
-    content: "";
-    display: block;
-  }
-  
-}
-.skill__gulp{
-  position: relative;
-  &:before{
-    position: absolute;
-    content: "";
-    display: block;
-  }
-  
-}
-.skill__webpack{
-  position: relative;
-  &:before{
-    position: absolute;
-    content: "";
-    display: block;
+  &-layer-above{
+    stroke-width: 12px;
+    stroke-dasharray: 275;
+    stroke-dashoffset:150 ;
   }
 }
