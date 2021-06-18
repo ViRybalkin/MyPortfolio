@@ -19,8 +19,14 @@ block layout
           include ./pages/skills.pug
     include ./pages/triangles-bottom.pug
     section.section.section-works 
-      .container.container-works 
-        include ./pages/works.pug
+      .container.container-works
+        .works__wrapper
+          .works__title 
+            h2 Мои работы
+          .works__content 
+            .works-preview
+              include ./pages/works-images.pug
+              include ./pages/works-info.pug
           //- +icon('link', 'link-class')
       //- +image('content/user.jpg', 'user-pic')
       //- .icon-bg

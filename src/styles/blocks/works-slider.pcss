@@ -1,0 +1,26 @@
+.works-preview{
+  &__slider{
+    height: 100%;
+    margin-right: 150px;
+    width: 100%;
+  }
+  &-pic{
+    position: relative;
+    &:before{
+      content: attr(data-slide);
+      position: absolute;
+      top: 2%;line-height: 1;
+      font-size: 400px;
+      right: 0;
+      font-weight: 800;
+      color: #DDE3EC;
+      transform: translateX(72%);
+      z-index: -1;
+    }
+  }
+  &__thumbs{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}

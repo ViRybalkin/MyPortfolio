@@ -1,0 +1,13 @@
+.works-preview__slider
+  .works-preview-pic(data-slide='2')
+    +image('content/works-slider.png','works-slider-img')
+    .works-preview__thumbs
+      ul.works-preview__list
+        - for (var i = 4;i >= 1; i--)
+          li.works-preview__item 
+            a(href="#").works-preview__link
+              +image(`content/slider/slider-${i}.png`,'slider-img')
+    .works-slider__btns 
+      .square-btns 
+        button(type="button").square-btns__item.square-btns__item-up
+        button(type="button").square-btns__item.square-btns__item-down
