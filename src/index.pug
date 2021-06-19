@@ -17,7 +17,7 @@ block layout
         .value-wrapper
           include ./pages/values.pug
           include ./pages/skills.pug
-    include ./pages/triangles-bottom.pug
+    //- include ./pages/triangles-bottom.pug
     section.section.section-works 
       .container.container-works
         .works__wrapper
@@ -27,6 +27,12 @@ block layout
             .works-preview
               include ./pages/works-images.pug
               include ./pages/works-info.pug
+  section.section.section-reviews 
+    .container.container-reviews
+      .slider 
+        include ./pages/slider.pug
+        include ./pages/review.pug
+
           //- +icon('link', 'link-class')
       //- +image('content/user.jpg', 'user-pic')
       //- .icon-bg

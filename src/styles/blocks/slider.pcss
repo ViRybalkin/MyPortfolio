@@ -1,0 +1,43 @@
+.slider{
+  &__header{
+    display: flex;
+  }
+  &__title{
+  margin-bottom: 78px;
+  margin-right: 116px;
+  font-weight: 600;
+  }
+  &__btn{
+  }
+  &-btn{
+    &__item{
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: transparent;
+      border: 2px solid $dark;
+      position: relative;
+      margin-right: 28px;
+      &:last-child{
+        margin: 0;
+      }
+      &:before{
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 10px;
+        height: 17px;
+        background: svg-load('arrow-down.svg', fill=$dark, width=100%, height=100%) no-repeat;
+        transform: translate(-25%, -25%);
+      }
+      &--right{
+        &:before{
+          transform: rotate(180deg);
+          transform-origin: 2px 3px;
+        }
+      }
+    }
+  }
+}
