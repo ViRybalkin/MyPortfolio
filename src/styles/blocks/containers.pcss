@@ -2,19 +2,21 @@
   margin: 0 auto;
   max-width: 1500px;
   width: 95%;
-  height: 100vh;
   &-hero{
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 60px 0;
   }
   &-about{
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   &-values{
+    height: 100vh;
     position: relative;
     display: flex;
     justify-content: center;
@@ -31,16 +33,21 @@
     }
   }
   &-works{
-      display: flex;
+    display: flex;
       justify-content: center;
       align-items: center; 
+      height: 100vh;
     }
     &-reviews{
       display: flex;
+      height: 100vh;
       justify-content: center;
       align-items: center; 
   }
-  
+  &-footer{
+    display: flex;
+    justify-content: space-between;
+  }
   @include phones {
     width: 85%;
   }
