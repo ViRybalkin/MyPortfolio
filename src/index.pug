@@ -1,23 +1,24 @@
-extends ./pages/main.layout.pug
+extends ./components/main.layout.pug
+
 
 block layout
   .section-welcome
     section.section.section-hero
       .container.container-hero
-        include ./pages/header.pug
-        include ./pages/hero.pug
-        include ./pages/hero-btn.pug
+        include ./components/header.pug
+        include ./components/hero.pug
+        include ./components/hero-btn.pug
     section.section.section-about
       .container.container-about
-        include ./pages/about.pug
+        include ./components/about.pug
   .section-middle
-    include ./pages/triangles-top.pug
+    include ./components/triangles-top.pug
     section.section.section-values 
       .container.container-values
         .value-wrapper
-          include ./pages/values.pug
-          include ./pages/skills.pug
-    //- include ./pages/triangles-bottom.pug
+          include ./components/values.pug
+          include ./components/skills.pug
+    //- include ./components/triangles-bottom.pug
     section.section.section-works 
       .container.container-works
         .works__wrapper
@@ -25,13 +26,17 @@ block layout
             h2 Мои работы
           .works__content 
             .works-preview
-              include ./pages/works-images.pug
-              include ./pages/works-info.pug
+              include ./components/works-images.pug
+              include ./components/works-info.pug
   section.section.section-reviews 
     .container.container-reviews
       .slider 
-        include ./pages/slider.pug
-        include ./pages/review.pug
+        include ./components/slider.pug
+        include ./components/review.pug
   footer.footer
     .container.container-footer
-      include ./pages/footer.pug
+      include ./components/footer.pug
+
+
+
+      
