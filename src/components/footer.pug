@@ -20,10 +20,10 @@
       .footer__data-socials
       nav.social.social-round-borders
         ul.social__list
-          each item in socialItem
+          each value,key in socialItem
             li.social__item 
-              a.social__link(href="#")
-                +icon(item,'social__icon')
+              a.social__link(href=value)
+                +icon(key,'social__icon')
     .footer__data-col 
       .text-quote 
         .text-quote__text

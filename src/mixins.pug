@@ -6,6 +6,12 @@ mixin icon(name, className)
 mixin image(path, className)
   img(src=require(`images/${path}`).default class=className)
 
-- var socialItem = ['insta','github','vk','mail']
-
 - var menuItem = ['Обо мне',"Навыки",'Работы','Отзывы']
+
+-
+  const socialItem ={
+    'insta' : 'https://www.instagram.com/rybalkinvi',
+    'github': 'https://github.com/ViRybalkin',
+    'vk' : 'https://vk.com/kinjeks',
+    'mail': 'mailto:kinjeks@gmail.com',
+  };

@@ -3,19 +3,24 @@
   align-items: center;
   justify-content: center;
   &__button{
+    width: 25px;
+    height: 25px;
+    fill:$dark;
+    transition: .4s;
+  }
+  &__text{
     background: transparent;
     font-weight: 600;
     display: flex;
-    &:after{
-     margin-left: 15px;
-     content: "";
-     display: block;
-     background: svg-load('scroll.svg', fill=$dark, width=100%, height=100%);
-     width: 25px;
-     height: 25px;
-   }
+    &:hover{
+      .hero-btn__button{
+        fill:$icon-color-hover;
+
+      }
+    }
   }
 }
+
 
 .works-slider{
   &__btns{
@@ -52,4 +57,35 @@
         transform: translate(-50%, -50%) rotate(-270deg);
       }
     }
+}
+
+.slider-btn{
+  &__item{
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: transparent;
+    border: 3px solid $dark;
+    position: relative;
+    margin-right: 28px;
+    transition: .4s;
+    &:hover{
+      border-color: $icon-color-hover;
+      .slider__button{
+        fill: $icon-color-hover;
+      }
+    }
+    &:last-child{
+      margin: 0;
+    }
+  }
+}
+.slider__button{
+  width: 17px;
+  height: 12px;
+  fill: $dark;
+  transition: .4s;
+  &--right{
+    transform: rotate(180deg);
+  }
 }

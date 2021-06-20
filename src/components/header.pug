@@ -1,7 +1,7 @@
 header
   .header
     .logo 
-      h2.logo_icon ВА
+      h2.logo_icon ВР
     nav.menu
       ul.menu__list
         each item in menuItem
@@ -9,7 +9,7 @@ header
             a.menu__link(href="#") #{item}
     nav.social 
       ul.social__list 
-        each item in socialItem
+        each value,key in socialItem
           li.social__item 
-            a.social__link(href="#")
-              +icon(item,'social__icon') 
+            a.social__link(href=value)
+              +icon(key,'social__icon') 
