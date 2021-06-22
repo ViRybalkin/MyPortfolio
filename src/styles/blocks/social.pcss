@@ -2,11 +2,8 @@
   &__list{
     display: flex;
   }
-  &__item{
-    margin-right: 35px;
-    &:last-child{
-      margin-right: 0;
-    }
+  &__item + &__item{
+    margin-left: 35px;
   }
     &__icon{
       width: 25px;
@@ -38,7 +35,6 @@
             .social__icon{
               fill: #FF9A00;
             }
-
           }
         }
         .social__icon {

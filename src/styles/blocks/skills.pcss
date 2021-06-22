@@ -14,11 +14,8 @@
     &__list{
       display: flex;
     }
-    &__item{
-      margin-right: 66px;
-      &:last-child{
-        margin-right: 0;
-      }
+    &__item + &__item{
+      margin-left: 66px;
     }
     &__title{
       margin-bottom: 40px;
