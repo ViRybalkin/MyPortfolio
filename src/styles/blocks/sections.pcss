@@ -19,7 +19,18 @@
       width: 100%;
     }
   }
+  &-works{
+    @include tablets {
+      overflow-x: hidden;
+    }
+  }
   &-reviews{
-    background: url('~images/content/Budda.png') center top / cover no-repeat;
+    background: url('~images/content/Budda.jpg')  top right 99%/ cover no-repeat;
+    @include desktop {
+      background-position: top right 55%;
+    }
+    @include phones {
+      background-position: top right 50%;
+    }
   }
 }

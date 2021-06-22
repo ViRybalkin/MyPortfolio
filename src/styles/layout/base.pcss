@@ -51,10 +51,19 @@ h6 {
 h1{
   font-size: 72px;
   font-weight: 800;
+  @include tablets{
+    font-size: 48px;
+  }
+  @include phones{
+    font-size: 36px;
+  }
 }
 h2{
   font-size: 36px;
   font-weight: 600;
+  @include tablets{
+    font-size: 30px;
+  }
 }
 h3{
   font-size: 30px;

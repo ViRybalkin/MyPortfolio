@@ -1,5 +1,18 @@
 .works-preview__info{
   width: 20%;
+  font-weight: 600;
+  @include desktop{
+    width: 30%;
+  }
+  @include tablets{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @include phones{
+    align-items: flex-start;
+  }
 }
 .tags{
   &__list{
@@ -23,6 +36,15 @@
   &__desc{
     margin-bottom: 45px;
     color: rgba($dark,.8);
+    @include tablets{
+      width: 60%;
+      text-align: center;
+      line-height: 25px;
+    }
+    @include phones{
+      width: 100%;
+      text-align: left;
+    }
   }
 }
 .iconed__link{
@@ -30,7 +52,9 @@
   font-weight: 600;
   position: relative;
   margin-left: 35px;
-  &:hover{
+  &:hover,
+  &:active,
+  &:focus{
     border-bottom: 2px solid #4B6FD7;
   }
   &:before{

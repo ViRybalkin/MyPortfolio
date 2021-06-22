@@ -1,15 +1,30 @@
-header
-  .header
-    .logo 
-      h2.logo_icon ВР
-    nav.menu
-      ul.menu__list
-        each item in menuItem
-          li.menu__item 
-            a.menu__link(href="#") #{item}
-    nav.social 
-      ul.social__list 
-        each value,key in socialItem
-          li.social__item 
-            a.social__link(href=value)
-              +icon(key,'social__icon') 
+header.header
+  .logo 
+    h2.logo_icon ВР
+  nav.menu
+    ul.menu__list
+      each item in menuItem
+        li.menu__item 
+          a.menu__link(href="#") #{item}
+  nav.social 
+    ul.social__list 
+      each value,key in socialItem
+        li.social__item 
+          a.social__link(href=value)
+            +icon(key,'social__icon') 
+header.header-tablets
+  .logo 
+    h2.logo_icon ВР
+  nav.social 
+    ul.social__list 
+      each value,key in socialItem
+        li.social__item 
+          a.social__link(href=value,target="_blank")
+            +icon(key,'social__icon') 
+  button(type="button").header-tablets__menu
+    .header-tablets__item
+header.header-phones
+  .logo 
+    h2.logo_icon ВР
+  button(type="button").header-phones__menu
+    .header-phones__item

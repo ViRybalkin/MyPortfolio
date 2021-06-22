@@ -20,6 +20,15 @@
       color: #DDE3EC;
       transform: translateX(72%);
       z-index: -1;
+      @include desktop{
+        font-size: 250px;
+      }
+      @include tablets{
+        font-size: 300px;
+      }
+      @include phones {
+        display: none;
+      }
     }
   }
   &__thumbs{
@@ -27,6 +36,9 @@
     bottom: 0;
     right: 0;
     width: 18%;
+    @include phones{
+      display: none;
+    }
     }
     &__list{
       width: 100%;
@@ -34,7 +46,9 @@
     }
   &__item{
     transition: .2s;
-    &:hover{
+    &:hover,
+    &:active,
+    &:focus{
       border: 3px solid #DC9322;
     }
   }
