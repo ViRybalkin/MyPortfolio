@@ -8,6 +8,9 @@
     @include desktop{
       height: 350px;
     }
+    @include desktop{
+      height: 250px;
+    }
   }
   &__text{
     color: rgba($dark,.6);
@@ -30,6 +33,9 @@
         height: 27px;
         left: -32px;
       }
+      @include phones{
+        display: none;
+      }
     }
   }
   &__list{
@@ -42,6 +48,10 @@
     padding-right: 16%;
     @include tablets{
       padding-right: 0;
+    }
+    @include phones{
+      
+      width: 100%;
     }
   }
 }

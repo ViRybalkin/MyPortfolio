@@ -7,7 +7,21 @@ html(lang="ru")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Document
-  body 
+  body
     .wrapper
       main.main-content
         block layout
+    .overlay
+      .overlay__wrapper
+        .overlay__menu
+          nav.menu.menu__mobile
+            ul.menu__list
+              each item in menuItem__mobile
+                li.menu__item 
+                  a.menu__link(href="#") #{item}
+          nav.social.social__mobile
+            ul.social__list 
+              each value,key in socialItem
+                li.social__item 
+                  a.social__link(href=value)
+                    +icon(key,'social__icon')

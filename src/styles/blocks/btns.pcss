@@ -109,3 +109,50 @@
     transform: rotate(180deg);
   }
 }
+
+.header-tablets{
+  &__menu{
+    z-index: 101;
+  background: transparent;
+  height: 30px;
+  position: relative;
+  &:after,
+  &:before{
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 4px;
+    background: $dark;
+    left: 7px;
+    transition: 0.4s;
+  }
+  &:after{
+    top: 5px;
+  }
+  &:before{
+    bottom: 5px;
+  }
+}
+&__item{
+  background: $dark;
+  width:24px;
+  height: 4px;
+  position: relative;
+  transform: scale(1);
+  }
+}
+
+
+.header__tablets__menu-active{
+  .header-tablets__item{
+    transform: scale(0);
+  }
+  &::before{
+    transform: rotate(-45deg);
+    top: 9px;
+  }
+  &::after{
+    transform: rotate(45deg);
+    top: 9px;
+  }
+}

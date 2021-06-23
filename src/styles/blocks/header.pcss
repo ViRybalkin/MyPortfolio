@@ -15,64 +15,12 @@
     justify-content: space-between;
     margin-bottom: 112px;
   }
-  @include phones{
-    display: none;
+  .logo{
+    z-index: 101;
   }
-  &__menu{
-    background: transparent;
-    height: 30px;
-    position: relative;
-    &:after,
-    &:before{
-      content: "";
-      position: absolute;
-      width: 24px;
-      height: 4px;
-      background: $dark;
-      left: 7px;
+  .social{
+    @include phones{
+      display: none;
     }
-    &:after{
-      top: 5px;
-    }
-    &:before{
-      bottom: 5px;
-    }
-  }
-  &__item{
-    background: $dark;
-    width:24px;
-    height: 4px;
-    position: relative;
-  }
-}
-
-.header-phones{
-  display: none;
-  &__menu{
-    background: $dark;
-    width:24px;
-    height: 4px;
-    position: relative;
-    &:after,
-    &:before{
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: $dark;
-      left: 0;
-    }
-    &:after{
-      top: 8px;
-    }
-    &:before{
-      bottom: 8px;
-    }
-  }
-  @include phones{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 112px;
   }
 }
