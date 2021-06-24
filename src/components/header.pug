@@ -3,9 +3,9 @@ header.header
     h2.logo_icon ВР
   nav.menu
     ul.menu__list
-      each item in menuItem
+      each value,key in menuItem
         li.menu__item 
-          a.menu__link(href="#") #{item}
+          a.menu__link(href=value) #{key}
   nav.social 
     ul.social__list 
       each value,key in socialItem

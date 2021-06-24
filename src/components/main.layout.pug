@@ -1,12 +1,13 @@
 include ./../mixins.pug
 
+
 doctype html
 html(lang="ru")
   head
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Document
+    title= title
   body
     .wrapper
       main.main-content
@@ -16,12 +17,12 @@ html(lang="ru")
         .overlay__menu
           nav.menu.menu__mobile
             ul.menu__list.menu__list-mobile
-              each item in menuItem__mobile
+              each value,key in menuItemMobile
                 li.menu__item 
-                  a.menu__link(href="#") #{item}
+                  a.menu__link(href=value) #{key}
           nav.social.social__mobile
             ul.social__list 
               each value,key in socialItem
                 li.social__item 
-                  a.social__link(href=value)
+                  a.social__link(href=value,target="_blank")
                     +icon(key,'social__icon')

@@ -27,35 +27,6 @@
     @include tablets{
       align-items: stretch;
     }
-    &::before{
-      content: "";
-      position: absolute;
-      display: block;
-      background: url('~images/content/backpack.png') left bottom / contain no-repeat;
-      width: 47%;
-      bottom: 10%;
-      height: 64%;
-      left: -8%;
-      @include desktop{
-        width: 61%;
-        bottom: 12%;
-        height: 70%;
-        left: -25%;
-      }
-    @include tablets{
-      width: 38%;
-      top: 70%;
-      height: 25%;
-      left: 32%;
-      bottom: 0;
-    }
-    @include phones{
-    width: 62%;
-    height: 27%;
-    left: 16%;
-    top: 82%;
-    }
-    }
   }
   &-works{
     display: flex;
