@@ -6,22 +6,22 @@
       {
         "id" : 1,
         "title": "HTML5",
-        "percnet": 32
+        "percent": 32
       },
       {
         "id" : 2,
         "title": "CSS3",
-        "percnet": 76
+        "percent": 76
       },
       {
         "id" : 3,
         "title": "javascript",
-        "percnet": 15
+        "percent": 15
       },
       {
         "id" : 4,
         "title": "Vue.js",
-        "percnet": 50
+        "percent": 50
       }
     ]
   },
@@ -32,22 +32,22 @@
       {
         "id" : 10,
         "title": "GIT",
-        "percnet": 32
+        "percent": 32
       },
       {
         "id" : 11,
         "title": "Terminal",
-        "percnet": 76
+        "percent": 76
       },
       {
         "id" : 12,
         "title": "Gulp",
-        "percnet": 15
+        "percent": 15
       },
       {
         "id" : 13,
         "title": "Webpack",
-        "percnet": 50
+        "percent": 50
       }
     ]
   }

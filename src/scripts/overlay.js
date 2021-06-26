@@ -3,8 +3,9 @@
 const burgerBtn = document.querySelector('.header-tablets__menu');
 const overlay = document.querySelector('.overlay');
 const body = document.body;
-const menuMain = document.querySelector('.menu__list-mobile > .menu__item');
-const menuItem = document.querySelectorAll('.menu__list-mobile > .menu__item');
+const menuList = document.querySelector('.menu__list-mobile');
+const socialList = document.querySelector('.social__list-mobile');
+
 
 //Добавление/удаление overlay по кнопке burger
 burgerBtn.addEventListener('click',() => {
@@ -13,10 +14,12 @@ burgerBtn.addEventListener('click',() => {
   body.classList.toggle("body-active");
 });
 
-//Перебор item in BurgerMenu
-menuItem.forEach(item => {
-  item.addEventListener('click', closeOverlay);
-});
+//Добавление слушателя события по родителю
+menuList.addEventListener('click', closeOverlay);
+socialList.addEventListener('click', closeOverlay);
+
+//Закрытие overlay по клику на overlay
+overlay.addEventListener('click',closeOverlay)
 
 //Функци закрытия overlay по нажатию item in BurgerMenu
 function closeOverlay(){
