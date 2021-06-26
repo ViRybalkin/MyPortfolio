@@ -4,8 +4,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 250px;
-
+    height: 300px;
+    @include desktop{
+      height: 350px;
+    }
+    @include desktop{
+      height: 250px;
+    }
   }
   &__text{
     color: rgba($dark,.6);
@@ -23,24 +28,45 @@
       top: 0;
       line-height: 1;
       left: -90px;
+      @include tablets{
+        width: 37px;
+        height: 27px;
+        left: -32px;
+      }
+      @include phones{
+        display: none;
+      }
     }
   }
   &__list{
     display: flex;
   }
-  &__item{
+  &__item {
     flex-shrink: 0;
     padding-right: 30px;
     width: 46%;
     padding-right: 16%;
+    @include tablets{
+      padding-right: 0;
+    }
+    @include phones{
+      
+      width: 100%;
+    }
   }
 }
 
 .user-display{
   display: flex;
   align-items: center;
-  &-avatar{
+  &__avatar{
     margin-right: 30px;
+  }
+  &__style{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+
   }
   &__name{
   font-weight: 600;

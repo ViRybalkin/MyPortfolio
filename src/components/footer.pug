@@ -4,26 +4,26 @@
       p &copy; 2020
     .footer__copyright-userinfo
       .footer__copyright-name
-        p Владимир Астахов
+        p Виталий Рыбалкин
       .footer__copyright-text 
-        p Личный сайт#[br] веб-разработчика
+        p Личный сайт веб-разработчика
 .footer__data 
   nav.menu.menu__footer 
     ul.menu__list 
-      each item in menuItem 
+      each value,key in menuItem 
         li.menu__item
-          a.menu__link(href="#") #{item}
+          a.menu__link(href=value) #{key}
   .footer__data-content
     .footer__data-col 
       .footer__data-text 
         p Этот сайт я сделал в рамках обучения#[br] в Школе онлайн образования Loftschool
       .footer__data-socials
-      nav.social.social-round-borders
-        ul.social__list
-          each value,key in socialItem
-            li.social__item 
-              a.social__link(href=value)
-                +icon(key,'social__icon')
+        nav.social.social-round-borders
+          ul.social__list
+            each value,key in socialItem
+              li.social__item 
+                a.social__link(href=value,target="_blank")
+                  +icon(key,'social__icon')
     .footer__data-col 
       .text-quote 
         .text-quote__text

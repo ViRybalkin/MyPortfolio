@@ -1,10 +1,25 @@
 .slider{
+  @include phones{
+    width: 100%;
+  }
   &__header{
     display: flex;
+    @include phones{
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 55px;
+    }
   }
   &__title{
   margin-bottom: 78px;
   margin-right: 116px;
   font-weight: 600;
+  @include tablets{
+    margin-right: 30px;
+    }
+    @include phones{
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
   }
 }

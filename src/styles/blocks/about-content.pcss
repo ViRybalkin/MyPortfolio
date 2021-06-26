@@ -10,6 +10,12 @@
   &__desc{
     margin-bottom: 70px;
     font-weight: 600;
+    @include desktop{
+      margin-bottom: 110px;
+    }
+    @include phones{
+      margin-bottom: 59px;
+    }
   }
   &__ps{
     color: rgba($dark,.8);
@@ -22,6 +28,9 @@
       color: rgba(#DB0200,.5);
       top: -10px;
       left: -40px;
+    }
+    @include phones{
+      margin-left: 25px;
     }
   }
 }

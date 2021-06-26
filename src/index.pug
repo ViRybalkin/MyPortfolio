@@ -3,23 +3,23 @@ extends ./components/main.layout.pug
 
 block layout
   .section-welcome
-    section.section.section-hero
+    section.section.section-hero#main
       .container.container-hero
         include ./components/header.pug
         include ./components/hero.pug
         include ./components/hero-btn.pug
-    section.section.section-about
+    section.section.section-about#about
       .container.container-about
         include ./components/about.pug
   .section-middle
     include ./components/triangles-top.pug
-    section.section.section-values 
+    section.section.section-values#values
       .container.container-values
         .value-wrapper
           include ./components/values.pug
           include ./components/skills.pug
-    //- include ./components/triangles-bottom.pug
-    section.section.section-works 
+    include ./components/triangles-bottom.pug
+    section.section.section-works#works
       .container.container-works
         .works__wrapper
           .works__title 
@@ -28,7 +28,7 @@ block layout
             .works-preview
               include ./components/works-images.pug
               include ./components/works-info.pug
-  section.section.section-reviews 
+  section.section.section-reviews#reviews
     .container.container-reviews
       .slider 
         include ./components/slider.pug

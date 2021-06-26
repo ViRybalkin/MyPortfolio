@@ -1,6 +1,8 @@
 .section {
-  height: 100%;
   min-height: 650px;
+  @include phones{
+    min-height: 100%;
+  }
   &-welcome{
     background: url('~images/content/main-bg.jpg') center top / cover no-repeat;
   }
@@ -19,7 +21,44 @@
       width: 100%;
     }
   }
+  &-works{
+    @include tablets {
+      overflow-x: hidden;
+    }
+    @include phones{
+      padding-bottom: 100px;
+    }
+  }
   &-reviews{
-    background: url('~images/content/Budda.png') center top / cover no-repeat;
+    background: url('~images/content/Budda.jpg')  top right 99%/ cover no-repeat;
+    @include desktop {
+      background-position: top right 55%;
+    }
+    @include phones {
+      background-position: top right 50%;
+      overflow-x: hidden;
+    }
+  }
+  &-values{
+    background: url('~images/content/backpack.png') no-repeat;
+    background-size: 40%;
+    background-position: bottom 20% left -10% ;
+    @include desktop{
+      background-position:bottom 30% left -35% ;
+      background-size: 50%;
+    }
+    @include tablets{
+      background-position:bottom center ;
+      background-size: 50%;
+    }
+    @include phones{
+    padding-bottom: 300px;
+    padding-top: 50px;
+    }
+  }
+  &-about{
+    @include phones{
+      padding-bottom: 120px;
+    }
   }
 }
