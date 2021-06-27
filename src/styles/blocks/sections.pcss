@@ -1,8 +1,5 @@
 .section {
   min-height: 650px;
-  @include phones{
-    min-height: 100%;
-  }
   &-welcome{
     background: url('~images/content/main-bg.jpg') center top / cover no-repeat;
   }
@@ -23,20 +20,24 @@
   }
   &-works{
     @include tablets {
-      overflow-x: hidden;
+      overflow: hidden;
+      padding: 50px 0;
     }
     @include phones{
       padding-bottom: 100px;
+      padding-top: 70px;
     }
   }
   &-reviews{
     background: url('~images/content/Budda.jpg')  top right 99%/ cover no-repeat;
+    overflow: hidden;
     @include desktop {
       background-position: top right 55%;
     }
     @include phones {
       background-position: top right 50%;
       overflow-x: hidden;
+      padding-top: 50px;
     }
   }
   &-values{
@@ -49,10 +50,11 @@
     }
     @include tablets{
       background-position:bottom center ;
-      background-size: 50%;
+      background-size: 40%;
+      padding-bottom: 300px;
     }
     @include phones{
-    padding-bottom: 300px;
+    padding-bottom: 200px;
     padding-top: 50px;
     }
   }

@@ -5,11 +5,18 @@
     flex-direction: column;
     justify-content: space-between;
     height: 300px;
+    width: 75%;
     @include desktop{
       height: 350px;
     }
-    @include desktop{
-      height: 250px;
+    @include tablets{
+      height: 400px;
+      width: 95%;
+    }
+    @include phones{
+      height: 350px;
+      width: 90%;
+      padding-left: 0;
     }
   }
   &__text{
@@ -42,15 +49,11 @@
     display: flex;
   }
   &__item {
-    flex-shrink: 0;
-    padding-right: 30px;
-    width: 46%;
-    padding-right: 16%;
+    margin-right: 20px;
     @include tablets{
-      padding-right: 0;
+      margin-right: 0;
     }
     @include phones{
-      
       width: 100%;
     }
   }
@@ -65,8 +68,9 @@
   &__style{
     width: 75px;
     height: 75px;
+  }
+  &__photo{
     border-radius: 50%;
-
   }
   &__name{
   font-weight: 600;
@@ -76,3 +80,4 @@
     color: rgba($dark,.5);
   }
 }
+
