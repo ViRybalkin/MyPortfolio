@@ -33,7 +33,7 @@ script(type="text/x-template")#preview-thumbs
       v-for="slide in works" :key="slide.id"
       :class="{active: currentWork.id === slide.id}"
       )
-        a(href="#").works-preview__link
+        a(href="#", target="_blank").works-preview__link
           img(:src="slide.photo").slider-img
 
 
@@ -58,7 +58,6 @@ script(type="text/x-template")#preview-info
     .works-preview__title
       h3 {{currentWork.title}}
     .works-preview__desc 
-      //- p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
       p {{currentWork.desc}}
     a(:href="currentWork.link").iconed__link Посмотреть сайт
 
