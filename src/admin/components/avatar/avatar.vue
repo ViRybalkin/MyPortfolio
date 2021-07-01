@@ -1,15 +1,15 @@
 <template>
-  <div class="avatar-component" :style="measures">
-    <img 
-      class="image"
-      v-bind="$attrs"
-      alt="user picture"
-    />
+  <div class="avatar-component" >
+    <div class="image">
+      <img  v-bind="$attrs" alt="user picture"/>
+    </div>
+    <div class="username"> {{title}}</div>
   </div>
 </template>
 <script>
 export default {
   props: {
+    title: String,
     size: {
       type: String,
       default: "3"

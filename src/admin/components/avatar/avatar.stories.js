@@ -12,13 +12,17 @@ export const defaultView = () => ({
   props: {
     size: {
       default: text("size", "3.1")
+    },
+    title:{
+      default: text("UserName","Виталий Рыбалкин")
     }
   },
   template: `
-    <avatar :size="size" src="https://picsum.photos/300/300" />
-  `,
+  <avatar :size="size" :title="title" src="https://picsum.photos/300/300" />
+  `
 });
 
 defaultView.story = {
   name: "Стандартный вид"
 }
+
