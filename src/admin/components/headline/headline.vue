@@ -1,6 +1,6 @@
 <template >
   <div class="headline-component">
-     <div class="container">
+     <div class="container-headline">
         <slot />
         <div class="title">{{title}}</div>
         <div class="btns">
@@ -13,6 +13,7 @@
   export default{
     props:{
       title: String,
+      default: "Панель администрирования"
   }
 }
 </script>
