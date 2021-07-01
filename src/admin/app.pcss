@@ -1,5 +1,5 @@
 .app-container{
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -17,7 +17,18 @@
 }
 
 .page-content{
-  padding: 60px 0 20px;
+  padding: 60px 30px 20px;
   background: url('../images/content/main-bg-admin.jpg') center center /cover no-repeat;
   flex: 1;
+}
+
+.skills{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.item{
+  width: calc(100% / 2 - 30px);
+  margin-right: 30px;
 }
