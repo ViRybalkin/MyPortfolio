@@ -15,7 +15,7 @@ script(type="text/x-template")#preview-container
 script(type="text/x-template")#preview-display
   .works-preview__slider
     .works-preview-pic(:data-slide='currentIndex + 1')
-      img(:src="currentWork.photo").works-slider-img
+      img(:src="currentWork.photo", alt="work preview big" height="100%" width="100%").works-slider-img
       .works-preview__thumbs
         thumbs(
           :works="reversedWorks",
@@ -33,17 +33,19 @@ script(type="text/x-template")#preview-thumbs
       v-for="slide in works" :key="slide.id"
       :class="{active: currentWork.id === slide.id}"
       )
-        a(href="#", target="_blank").works-preview__link
-          img(:src="slide.photo").slider-img
+        a(href="#", target="_blank",rel="noopener" aria-label="works preview small").works-preview__link
+          img(:src="slide.photo",alt="works preview small" height="100%" width="100%").slider-img
 
 
 script(type="text/x-template")#preview-btns
   .square-btns 
     button(
+      aria-label="Next"
       type="button"
       @click="$emit('slide','next')"
       ).square-btns__item.square-btns__item-up
     button(
+      aria-label="Prev"
       type="button"
       @click="$emit('slide','prev')"
       ).square-btns__item.square-btns__item-down
@@ -59,7 +61,7 @@ script(type="text/x-template")#preview-info
       h3 {{currentWork.title}}
     .works-preview__desc 
       p {{currentWork.desc}}
-    a(:href="currentWork.link").iconed__link Посмотреть сайт
+    a(:href="currentWork.link",rel="noopener" aria-label="view site").iconed__link Посмотреть сайт
 
 
 script(type="text/x-template")#preview-tags

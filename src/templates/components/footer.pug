@@ -12,7 +12,7 @@
     ul.menu__list 
       each value,key in menuItem 
         li.menu__item
-          a.menu__link(href=value) #{key}
+          a.menu__link(href=value,rel="noopener",aria-label="menu item name") #{key}
   .footer__data-content
     .footer__data-col 
       .footer__data-text 
@@ -22,7 +22,7 @@
           ul.social__list
             each value,key in socialItem
               li.social__item 
-                a.social__link(href=value,target="_blank")
+                a.social__link(href=value,target="_blank",rel="noopener",aria-label="social icon")
                   +icon(key,'social__icon')
     .footer__data-col 
       .text-quote 
