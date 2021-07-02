@@ -3,10 +3,14 @@
   height: 100px;
   position: absolute;
   fill: #fff;
+  stroke: #fff;
   &-pointed-down{
     .triangles__shape{
       transform: rotate(180deg);
     }
+  }
+  @include desktop{
+    height: 50px;
   }
   @include tablets{
     height: 30px;
