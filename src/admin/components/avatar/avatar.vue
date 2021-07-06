@@ -1,9 +1,9 @@
 <template>
-  <div class="avatar-component" >
+  <div class="avatar-component">
     <div class="image">
-      <img  v-bind="$attrs" alt="user picture"/>
+      <img v-bind="$attrs" alt="user picture" />
     </div>
-    <div class="username"> {{title}}</div>
+    <div class="username">{{ title }}</div>
   </div>
 </template>
 <script>
@@ -12,8 +12,8 @@ export default {
     title: String,
     size: {
       type: String,
-      default: "3"
-    }
+      default: "3",
+    },
   },
   computed: {
     measures() {
@@ -21,9 +21,9 @@ export default {
       return {
         width: `${size}rem`,
         height: `${size}rem`,
-      }
-    }
-  }
-}
+      };
+    },
+  },
+};
 </script>
 <style lang="postcss" scoped src="./avatar.pcss"></style>

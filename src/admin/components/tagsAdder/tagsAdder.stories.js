@@ -9,7 +9,7 @@ export const defaultView = () => ({
   components: { tagsAdder },
   data() {
     return {
-      tags: "One, two, three, four"
+      tags: ""
     }
   },
   template: `

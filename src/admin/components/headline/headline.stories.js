@@ -1,25 +1,25 @@
-import headline from './headline.vue';
+import headline from "./headline.vue";
 import { action } from "@storybook/addon-actions";
 
 const methods = {
-  onChange: action('onChange')
-}
+  onChange: action("onChange"),
+};
 
 export default {
   title: "headline",
-  components: { headline }
-}
+  components: { headline },
+};
 
 export const defaultView = () => ({
-  components: {headline},
+  components: { headline },
   template: `
   <headline @change='onChange' title="Панель Управления">
     <h3>фото с именем</h3>
   </headline> 
   `,
-  methods
+  methods,
 });
 
-defaultView.story= {
-  name: "Стандартный вид"
-}
+defaultView.story = {
+  name: "Стандартный вид",
+};

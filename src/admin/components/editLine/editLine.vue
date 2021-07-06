@@ -1,7 +1,7 @@
 <template>
-  <div class="edit-line-component" :class="{'blocked' : blocked}">
+  <div class="edit-line-component" :class="{ blocked: blocked }">
     <div class="title" v-if="editmode === false">
-      <div class="text">{{value}}</div>
+      <div class="text">{{ value }}</div>
       <div class="icon">
         <icon symbol="pencil" grayscale @click="editmode = true"></icon>
       </div>
@@ -16,6 +16,7 @@
           @keydown.native.enter="onApprove"
           autofocus="autofocus"
           no-side-paddings="no-side-paddings"
+          v-model="value"
         ></app-input>
       </div>
       <div class="buttons">
@@ -27,6 +28,7 @@
         </div>
       </div>
     </div>
+     <pre>{{value}}</pre>
   </div>
 </template>
 
@@ -35,34 +37,35 @@ export default {
   props: {
     value: {
       type: String,
-      default: ""
+      default: "",
     },
     errorText: {
       type: String,
-      default: ""
+      default: "",
     },
-    editModeByDefault:Boolean,
-    blocked: Boolean
+    editModeByDefault: Boolean,
+    blocked: Boolean,
   },
   data() {
     return {
       editmode: this.editModeByDefault,
-      title: this.value
+      title: this.value,
     };
   },
   methods: {
     onApprove() {
       if (this.title.trim() === this.value.trim()) {
         this.editmode = false;
+        this.title = this.value.trim()
       } else {
         this.$emit("approve", this.value);
       }
-    }
+    },
   },
   components: {
     icon: () => import("components/icon"),
-    appInput: () => import("components/input")
-  }
+    appInput: () => import("components/input"),
+  },
 };
 </script>
 
