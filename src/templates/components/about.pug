@@ -1,0 +1,20 @@
+.about
+  .about__user
+    .user
+      .user__avatar
+        .user__avatar-style 
+          +image('content/Vitaliy.png','user__avatar-pic',alt="main-user",height="100%",width="100%")
+    table.user__data
+      each item in userInfo
+        tr.user__data-row 
+          td.user__data-title #{item[0]}
+          td.user__data-content #{item[1]}
+  .about__content 
+    .about__subtitle 
+      p Привет, меня зовут
+    .about__title 
+      h2 Виталий Рыбалкин
+    .about__desc 
+      p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+    .about__ps 
+      p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!

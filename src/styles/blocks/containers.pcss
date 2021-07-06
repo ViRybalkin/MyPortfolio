@@ -8,34 +8,31 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 60px 0;
+    @include tablets{
+      justify-content: stretch  ;
+    }
   }
   &-about{
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    @include phones{
+      height: inherit;
+    }
   }
   &-values{
-    height: 100vh;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    &::before{
-      content: "";
-      position: absolute;
-      display: block;
-      background: url('~images/content/backpack.png') left bottom / contain no-repeat;
-      width: 47%;
-      bottom: 10%;
-      height: 64%;
-      left: -8%;
+    @include tablets{
+      align-items: stretch;
     }
   }
   &-works{
     display: flex;
     align-items: center; 
-    height: 100vh;
     }
     &-reviews{
       display: flex;
@@ -46,8 +43,11 @@
   &-footer{
     display: flex;
     justify-content: space-between;
+    @include phones{
+      flex-direction: column;
+    }
   }
   @include phones {
-    width: 85%;
+    width: 90%;
   } 
 }

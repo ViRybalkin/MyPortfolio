@@ -2,10 +2,27 @@
   &-preview{
     display: flex;
     height: 100%;
+    @include tablets {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     &__slider{
-      height: 100%;
       width: 60%;
       margin-right: 15%;
+      @include desktop{
+        width: 55%;
+        margin-right: 12%;
+      }
+      @include tablets{
+        width: 90%;
+        margin-bottom: 70px;
+        margin-right: 10%;
+      }
+      @include phones{
+        margin-right: 0;
+        width: 100%;
+      }
     }
   }
   &__content{

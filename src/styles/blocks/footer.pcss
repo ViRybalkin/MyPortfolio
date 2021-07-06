@@ -7,10 +7,16 @@
   line-height: 30px;
   &__copyright{
     width: 27%;
+    @include phones{
+      width: 100%;
+    }
     &-col{
       flex: 1;
       display: flex;
-    justify-content: space-between;
+      justify-content: space-between;
+      @include desktop{
+        display: block;
+      }
   }
     &-year{
       font-size: 48px;
@@ -23,10 +29,16 @@
       font-weight: bold;
       text-transform: uppercase;
       margin-bottom:18px ;
+      @include desktop{
+        margin-bottom: 28px;
+      }
     }
     &-userinfo{
       width: 39%;
       padding-top: 7px;
+      @include desktop{
+        width: 75%;
+      }
     }
     &-text{
       color: rgba($dark,.5);
@@ -35,15 +47,32 @@
   &__data{
     width: 66%;
     padding-top: 7px;
+    @include phones{
+      width: 100%;
+    }
+    &-socials{
+      @include tablets{
+        margin-bottom: 50px;
+      }
+    }
     &-content{
       display: flex;
       justify-content: space-between;
+      @include tablets{
+        display: block;
+      }
     }
     &-col{
       width: 46%;
+      @include tablets{
+        width: 100%;
+      }
     }
     &-text{
       margin-bottom: 46px;
+      @include tablets{
+        margin-bottom: 21px;
+      }
     }
   }
 }

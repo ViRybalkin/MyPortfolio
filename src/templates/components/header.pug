@@ -1,0 +1,25 @@
+header.header
+  .logo 
+    h2.logo_icon ВР
+  nav.menu
+    ul.menu__list
+      each value,key in menuItem
+        li.menu__item 
+          a.menu__link(href=value,rel="noopener") #{key}
+  nav.social 
+    ul.social__list 
+      each value,key in socialItem
+        li.social__item 
+          a.social__link(href=value,target="_blank" rel="noopener" aria-label="social icon")
+            +icon(key,'social__icon') 
+header.header-tablets
+  .logo 
+    h2.logo_icon ВР
+  nav.social 
+    ul.social__list 
+      each value,key in socialItem
+        li.social__item 
+          a.social__link(href=value,target="_blank" rel="noopener" aria-label="social icon")
+            +icon(key,'social__icon') 
+  button(type="button" aria-label="Menu button").header-tablets__menu
+    .header-tablets__item

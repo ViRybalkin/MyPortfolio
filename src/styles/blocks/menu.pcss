@@ -6,11 +6,7 @@
     align-items: center;
   }
   &__item{
-    margin-right: 35px;
     position: relative;
-    &:last-child{
-      margin-right: 0;
-    }
     &:after{
       content: "";
       display: block;
@@ -21,8 +17,13 @@
       background: #5500F2;
       top: 35px;
       transition: .3s;
+      @include phones{
+        width: 60%;
+      }
     }
-    &:hover{
+    &:hover,
+    &:active,
+    &:focus{
       text-shadow: 0 0 .65px #333, 0 0 .65px #333;
       color: #5500F2;
       &:after{
@@ -31,15 +32,35 @@
       }
     }
   }
+  &__item + &__item{
+    margin-left: 35px;
+    @include tablets{
+      margin-left: 40px;
+    }
+  }
 }
 
 .menu{
   &__footer{
     margin-bottom: 40px;
     color: #fff;
+    .menu__list{
+      @include phones{
+        flex-wrap: wrap;
+        justify-content: start;
+        align-items: start;
+      }
+    }
     .menu__item{
       transition: .4s;
-      &:hover{
+      @include phones{
+        margin-left: 0;
+        flex: 0 0 50%;
+        margin-bottom: 20px;
+      }
+      &:hover,
+      &:active,
+      &:focus{
           color: #FF9A00;
           text-shadow: 0 0 .65px #333, 0 0 .65px #333;
       }

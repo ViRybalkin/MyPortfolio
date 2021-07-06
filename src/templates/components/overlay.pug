@@ -1,0 +1,14 @@
+.overlay
+  .overlay__wrapper
+    .overlay__menu
+      nav.menu.menu__mobile
+        ul.menu__list.menu__list-mobile
+          each value,key in menuItemMobile
+            li.menu__item 
+              a.menu__link(href=value,rel="noopener" aria-label="menu item name") #{key}
+      nav.social.social__mobile
+        ul.social__list.social__list-mobile
+          each value,key in socialItem
+            li.social__item 
+              a.social__link(href=value,target="_blank",rel="noopener" aria-label="social icon")
+                +icon(key,'social__icon')

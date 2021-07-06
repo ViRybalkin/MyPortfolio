@@ -11,12 +11,11 @@
         <app-input
           placeholder="Название новой группы"
           :value="value"
-          :errorText="errorText"
+          :errorMessage="errorText"
           @input="$emit('input', $event)"
           @keydown.native.enter="onApprove"
           autofocus="autofocus"
           no-side-paddings="no-side-paddings"
-          v-model="value"
         ></app-input>
       </div>
       <div class="buttons">
@@ -28,12 +27,18 @@
         </div>
       </div>
     </div>
-     <pre>{{value}}</pre>
   </div>
 </template>
 
 <script>
+import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
 export default {
+  mixin: [ValidatorMixin],
+  validators: {
+    title: (value) => {
+      return Validator.value(value).required("Не может быть пустым");
+    },
+  },
   props: {
     value: {
       type: String,
@@ -54,11 +59,15 @@ export default {
   },
   methods: {
     onApprove() {
-      if (this.title.trim() === this.value.trim()) {
+      if (this.value.trim() === "") {
+        this.errorText = "Не может быть пустым";
+        return false;
+      }
+      if (this.title.trim() == this.value.trim()) {
         this.editmode = false;
-        this.title = this.value.trim()
       } else {
         this.$emit("approve", this.value);
+        this.title = this.value.trim();
       }
     },
   },

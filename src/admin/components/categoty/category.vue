@@ -18,7 +18,10 @@
         </li>
       </ul>
       <div class="bottom-line">
-        <skill-add-line @approve="$emit('create-skill', $event)" :blocked="empty" />
+        <skill-add-line
+          @approve="$emit('create-skill', $event)"
+          :blocked="empty"
+        />
       </div>
     </template>
   </card>
@@ -29,7 +32,6 @@ import card from "../card";
 import editLine from "../editLine";
 import skill from "../skill";
 import skillAddLine from "../skillAddLine";
-
 export default {
   components: {
     card,
@@ -50,14 +52,13 @@ export default {
   },
   data() {
     return {
-      categoryTitle: this.title
+      categoryTitle: this.title,
     };
   },
 };
 </script>
 
 <style lang="postcss">
-
 .item {
   margin-bottom: 30px;
   &:last-child {

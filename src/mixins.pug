@@ -3,11 +3,10 @@ mixin icon(name, className)
   svg(class=className viewBox=icon.viewBox preserveAspectRatio="none")
     use(xlink:href=`sprite.svg#${icon.id.replace('-usage', '')}`)
 
-mixin image(path, className)
-  img(src=require(`images/${path}`).default class=className)
+mixin image(path, className, alt,height,width)
+  img(src=require(`images/${path}`).default class=className alt=alt height=height width=width)
 
-- var menuItem = ['Обо мне',"Навыки",'Работы','Отзывы']
-
+- const title = "MyPortofolio"
 -
   const socialItem ={
     'insta' : 'https://www.instagram.com/rybalkinvi',
@@ -22,3 +21,21 @@ mixin image(path, className)
     ['Возвраст','24 года'],
     ['Родился',"8 августа 1996"],
   ];
+
+- 
+  const menuItem = {
+  'Обо мне': '#about',
+  'Навыки': '#values',
+  'Работы': '#works',
+  'Отзывы': '#reviews',
+  };
+
+- 
+  const menuItemMobile = {
+  'Главная':'#main',
+  'Обо мне': '#about',
+  'Навыки': '#values',
+  'Работы': '#works',
+  'Отзывы': '#reviews',
+  };
+

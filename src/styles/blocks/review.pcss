@@ -4,8 +4,20 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 250px;
-
+    height: 300px;
+    width: 75%;
+    @include desktop{
+      height: 350px;
+    }
+    @include tablets{
+      height: 400px;
+      width: 95%;
+    }
+    @include phones{
+      height: 350px;
+      width: 90%;
+      padding-left: 0;
+    }
   }
   &__text{
     color: rgba($dark,.6);
@@ -23,24 +35,42 @@
       top: 0;
       line-height: 1;
       left: -90px;
+      @include tablets{
+        width: 37px;
+        height: 27px;
+        left: -32px;
+      }
+      @include phones{
+        display: none;
+      }
     }
   }
   &__list{
     display: flex;
   }
-  &__item{
-    flex-shrink: 0;
-    padding-right: 30px;
-    width: 46%;
-    padding-right: 16%;
+  &__item {
+    margin-right: 20px;
+    @include tablets{
+      margin-right: 0;
+    }
+    @include phones{
+      width: 100%;
+    }
   }
 }
 
 .user-display{
   display: flex;
   align-items: center;
-  &-avatar{
+  &__avatar{
     margin-right: 30px;
+  }
+  &__style{
+    width: 75px;
+    height: 75px;
+  }
+  &__photo{
+    border-radius: 50%;
   }
   &__name{
   font-weight: 600;
@@ -50,3 +80,4 @@
     color: rgba($dark,.5);
   }
 }
+

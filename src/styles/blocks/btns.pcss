@@ -2,6 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  @include tablets{
+    display: none;
+  }
   &__button{
     width: 25px;
     height: 25px;
@@ -12,7 +15,9 @@
     background: transparent;
     font-weight: 600;
     display: flex;
-    &:hover{
+    &:hover,
+    &:active,
+    &:focus{
       .hero-btn__button{
         fill:$icon-color-hover;
 
@@ -26,6 +31,9 @@
   &__btns{
   position: absolute;
   right: 0;
+  @include phones{
+    bottom: 0;
+  }
   }
 }
 .square-btns__item{
@@ -33,7 +41,17 @@
     width: 52px;
     height: 52px;
     background:#252830;
-    &:hover{
+    @include desktop{
+      width: 35px;
+      height: 35px;
+    }
+    @include phones{
+      width: 55px;
+      height: 55px;
+    }
+    &:hover,
+    &:active,
+    &:focus{
       &::before{
         opacity: 1;
         margin-top: 2px;
@@ -69,7 +87,9 @@
     position: relative;
     margin-right: 28px;
     transition: .4s;
-    &:hover{
+    &:hover,
+    &:active,
+    &:focus{
       border-color: $icon-color-hover;
       .slider__button{
         fill: $icon-color-hover;
@@ -87,5 +107,52 @@
   transition: .4s;
   &--right{
     transform: rotate(180deg);
+  }
+}
+
+.header-tablets{
+  &__menu{
+    z-index: 101;
+  background: transparent;
+  height: 30px;
+  position: relative;
+  &:after,
+  &:before{
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 4px;
+    background: $dark;
+    left: 0;
+    transition: 0.4s;
+  }
+  &:after{
+    top: 5px;
+  }
+  &:before{
+    bottom: 5px;
+  }
+}
+&__item{
+  background: $dark;
+  width:24px;
+  height: 4px;
+  position: relative;
+  transform: scale(1);
+  }
+}
+
+
+.header__tablets__menu-active{
+  .header-tablets__item{
+    transform: scale(0);
+  }
+  &::before{
+    transform: rotate(-45deg);
+    top: 9px;
+  }
+  &::after{
+    transform: rotate(45deg);
+    top: 9px;
   }
 }

@@ -22,6 +22,7 @@ export const defaultView = () => ({
     <editLine
       @approve="onApprove"
       @remove="onRemove" 
+      v-model="title"
     />
   `,
   methods,

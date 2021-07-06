@@ -3,9 +3,15 @@
   &__wrapper{
     display: flex;
     justify-content: flex-end;
+    @include tablets{
+      justify-content: center;
+    }
   }
   &__item{
     margin-bottom: 54px;
+    @include phones{
+      margin-bottom: 40px;
+    }
     &:last-child{
       margin-bottom: 0;
     }
@@ -13,12 +19,31 @@
   &-row{
     &__list{
       display: flex;
+      @include phones{
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+    &__item{
+      @include phones{
+        flex: 0 0 40%;
+      }
     }
     &__item + &__item{
-      margin-left: 66px;
+      margin-left: 54px;
+      @include tablets {
+        margin-left: 30px;
+      }
+      @include phones {
+        margin-left: 0;
+      }
     }
     &__title{
       margin-bottom: 40px;
+      @include tablets{
+        text-align: center;
+        margin-bottom: 24px;
+      }
     }
   }
 }

@@ -1,8 +1,15 @@
 .about{
   display: flex;
   max-width: 1000px;
+  @include phones{
+    flex-direction: column;
+  }
   &__user{
     width: 45%;
+    @include phones{
+      width: 100%;
+      margin-bottom: 45px;
+    }
   }
   &__content{
     flex: 1;
