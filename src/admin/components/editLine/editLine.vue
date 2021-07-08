@@ -1,7 +1,7 @@
 <template>
-  <div class="edit-line-component" :class="{'blocked' : blocked}">
+  <div class="edit-line-component" :class="{ blocked: blocked }">
     <div class="title" v-if="editmode === false">
-      <div class="text">{{value}}</div>
+      <div class="text">{{ value }}</div>
       <div class="icon">
         <icon symbol="pencil" grayscale @click="editmode = true"></icon>
       </div>
@@ -11,7 +11,7 @@
         <app-input
           placeholder="Название новой группы"
           :value="value"
-          :errorText="errorText"
+          :errorMessage="errorText"
           @input="$emit('input', $event)"
           @keydown.native.enter="onApprove"
           autofocus="autofocus"
@@ -31,37 +31,50 @@
 </template>
 
 <script>
+import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
 export default {
+  mixin: [ValidatorMixin],
+  validators: {
+    title: (value) => {
+      return Validator.value(value).required("Не может быть пустым");
+    },
+  },
   props: {
     value: {
       type: String,
-      default: ""
+      default: "",
     },
     errorText: {
       type: String,
-      default: ""
+      default: "",
     },
-    blocked: Boolean
+    editModeByDefault: Boolean,
+    blocked: Boolean,
   },
   data() {
     return {
-      editmode: false,
-      title: this.value
+      editmode: this.editModeByDefault,
+      title: this.value,
     };
   },
   methods: {
     onApprove() {
-      if (this.title.trim() === this.value.trim()) {
+      if (this.value.trim() === "") {
+        this.errorText = "Не может быть пустым";
+        return false;
+      }
+      if (this.title.trim() == this.value.trim()) {
         this.editmode = false;
       } else {
         this.$emit("approve", this.value);
+        this.title = this.value.trim();
       }
-    }
+    },
   },
   components: {
     icon: () => import("components/icon"),
-    appInput: () => import("components/input")
-  }
+    appInput: () => import("components/input"),
+  },
 };
 </script>
 

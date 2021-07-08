@@ -3,8 +3,8 @@ import { action } from "@storybook/addon-actions";
 
 const methods = {
   onApprove: action("onApprove"),
-  onRemove: action("onRemove")
-}
+  onRemove: action("onRemove"),
+};
 
 export default {
   title: "editLine",
@@ -15,8 +15,8 @@ export const defaultView = () => ({
   components: { editLine },
   data() {
     return {
-      title: "Название"
-    }
+      title: "Название",
+    };
   },
   template: `
     <editLine
@@ -25,7 +25,7 @@ export const defaultView = () => ({
       v-model="title"
     />
   `,
-  methods
+  methods,
 });
 
 defaultView.story = {
