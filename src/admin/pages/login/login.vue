@@ -5,11 +5,11 @@
         <div class="form__title">Авторизация</div>
         <div class="row">
           <app-input
-            title="Логин" 
+            title="Логин"
             v-model="user.name"
             icon="user"
             :errorMessage="validation.firstError('user.name')"
-             />
+          />
         </div>
         <div class="row">
           <app-input
@@ -21,7 +21,11 @@
           />
         </div>
         <div class="btn">
-          <app-button typeAttr="submit" title="Отправить" />
+          <app-button
+            :disabled="isSubmitDisabled"
+            typeAttr="submit"
+            title="Отправить"
+          />
         </div>
       </form>
     </div>
@@ -32,11 +36,12 @@
 import appInput from "../../components/input";
 import appButton from "../../components/button";
 import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
+import $axios from "../../request";
 
 export default {
   mixins: [ValidatorMixin],
   validators: {
-    "user.name": value => {
+    "user.name": (value) => {
       return Validator.value(value).required("Введите имя пользователя");
     },
     "user.password": (value) => {
@@ -48,15 +53,25 @@ export default {
       name: "",
       password: "",
     },
+    isSubmitDisabled: false,
   }),
   components: { appButton, appInput },
   methods: {
-    handleSubmit() {
-      console.log(this.user.name, this.user.password);
-      this.$validate().then((isValid) =>{
-        if(!isValid) return 
-        console.log('request');
-      })
+    async handleSubmit() {
+      if ( await !this.$validate()) return;
+        this.isSubmitDisabled = true;
+
+        try {
+          const response = await $axios.post("/login", this.user)
+          const token = response.data.token;
+          localStorage.setItem("token", token);
+          $axios.defaults.headers["Autorization"] = `Bearer ${token}`;
+          this.$router.replace("/");
+        } catch (error) {
+          console.log(error.response.data.error)
+        } finally{
+          this.isSubmitDisabled = false;
+        }
     },
   },
 };
