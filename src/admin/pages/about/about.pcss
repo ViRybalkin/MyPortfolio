@@ -21,6 +21,7 @@
   padding: 60px 30px 20px;
   background: url('../../../images/content/main-bg-admin.jpg') center center /cover no-repeat;
   flex: 1;
+  min-height: 100vh;
 }
 
 .skills{
@@ -37,4 +38,51 @@
 input,button{
   outline: none;
   appearance: none;
+}
+
+
+.container-content-loading {
+  font-size: 10px;
+  margin: 50px auto;
+  text-indent: -9999em;
+  width: 11em;
+  height: 11em;
+  border-radius: 50%;
+  background: #000000;
+  background: linear-gradient(to right, #43436b 10%, rgba(67,67,107, 0) 42%);
+  position: relative;
+  animation: load3 1.4s infinite linear;
+  transform: translateZ(0);
+}
+.loader:before {
+  width: 50%;
+  height: 50%;
+  background: #43436b;
+  border-radius: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+}
+.loader:after {
+  background: #fff;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  content: '';
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@keyframes load3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

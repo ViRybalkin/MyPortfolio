@@ -1,7 +1,7 @@
 <template>
   <div class="about-page-component">
     <div class="page-content">
-      <div class="container-content">
+      <div class="container-content" v-if="categories.length">
         <div class="header">
           <div class="title">Блок "Обо мне"</div>
           <iconed-button
@@ -24,6 +24,9 @@
             <category :title="category.category" :skills="category.skills" />
           </li>
         </div>
+      </div>
+      <div class="container-content-loading" v-else>
+      <div class="loader"></div>
       </div>
     </div>
   </div>
