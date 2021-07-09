@@ -11,7 +11,6 @@
             title="Добавить группу"
           />
         </div>
-
         <div class="skills">
           <li class="item" v-if="emptyCatisShow">
             <category
@@ -21,7 +20,13 @@
             />
           </li>
           <li class="item" v-for="category in categories" :key="category.id">
-            <category :title="category.category" :skills="category.skills" />
+            <category
+             :title="category.category" 
+             :skills="category.skills" 
+             @edit-skill="editSkill"
+             @remove-skill="removeSkill"
+             @create-skill="createSkill($event,category.id)"
+             />
           </li>
         </div>
       </div>
@@ -56,8 +61,28 @@ export default {
     ...mapActions({
       createCategoryAction: "categories/create",
       fetchCategoriesAction: "categories/fetch",
+      addSkillAction:"skills/add",
+      removeSkillAction:"skills/remove",
+      editSkillAction:"skills/edit"
     }),
-    async createCategory(categoryTitle) {
+    async createSkill(skill,categoryId){
+      const newSkill = {
+        ...skill,
+        category:categoryId
+      }
+      await this.addSkillAction(newSkill)
+      skill.title = '',
+      skill.percent = ''
+    },
+    removeSkill(skill){
+      this.removeSkillAction(skill)
+    },
+    async editSkill(skill){
+      await this.editSkillAction(skill)
+      skill.editmode = false;
+    },
+   
+   async createCategory(categoryTitle) {
       try {
         await this.createCategoryAction(categoryTitle);
         this.emptyCatisShow = false;
