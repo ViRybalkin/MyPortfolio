@@ -31,8 +31,11 @@
           </li>
         </div>
       </div>
-      <div class="container-content-loading" v-else>
-      <div class="loader"></div>
+      <div class="container-content" v-else>
+        <div class="container-content-loading">
+          <div class="loader"></div>
+        </div>
+          <h1 class="loading__title">Loading..</h1>
       </div>
     </div>
   </div>
