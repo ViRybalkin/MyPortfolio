@@ -1,7 +1,7 @@
 <template>
   <div class="about-page-component">
     <div class="page-content">
-      <div class="container-content" v-if="categories.length">
+      <div class="container-content" v-if="categories.length ">
         <div class="header">
           <div class="title">Блок "Обо мне"</div>
           <iconed-button
@@ -23,6 +23,7 @@
             <category
              :title="category.category" 
              :skills="category.skills" 
+             @remove="deleteCategory(category.id)"
              @edit-skill="editSkill"
              @remove-skill="removeSkill"
              @create-skill="createSkill($event,category.id)"
@@ -63,7 +64,8 @@ export default {
       fetchCategoriesAction: "categories/fetch",
       addSkillAction:"skills/add",
       removeSkillAction:"skills/remove",
-      editSkillAction:"skills/edit"
+      editSkillAction:"skills/edit",
+      removeCategory: "categories/remove"
     }),
     async createSkill(skill,categoryId){
       const newSkill = {
@@ -89,6 +91,9 @@ export default {
       } catch (error) {
         console.log(error.message);
       }
+    },
+     deleteCategory(categoryId) {
+      this.removeCategory(categoryId);
     },
   },
   created() {
