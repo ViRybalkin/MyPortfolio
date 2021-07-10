@@ -1,7 +1,7 @@
 <template>
   <div class="about-page-component">
     <div class="page-content">
-      <div class="container-content" v-if="categories.length ">
+      <div class="container-content" v-if="categories.length">
         <div class="header">
           <div class="title">Блок "Обо мне"</div>
           <iconed-button
@@ -21,13 +21,13 @@
           </li>
           <li class="item" v-for="category in categories" :key="category.id">
             <category
-             :title="category.category" 
-             :skills="category.skills" 
-             @remove="deleteCategory(category.id)"
-             @edit-skill="editSkill"
-             @remove-skill="removeSkill"
-             @create-skill="createSkill($event,category.id)"
-             />
+              :title="category.category"
+              :skills="category.skills"
+              @remove="deleteCategory(category.id)"
+              @edit-skill="editSkill"
+              @remove-skill="removeSkill"
+              @create-skill="createSkill($event, category.id)"
+            />
           </li>
         </div>
       </div>
@@ -35,7 +35,7 @@
         <div class="container-content-loading">
           <div class="loader"></div>
         </div>
-          <h1 class="loading__title">Loading..</h1>
+        <h1 class="loading__title">Loading..</h1>
       </div>
     </div>
   </div>
@@ -65,29 +65,32 @@ export default {
     ...mapActions({
       createCategoryAction: "categories/create",
       fetchCategoriesAction: "categories/fetch",
-      addSkillAction:"skills/add",
-      removeSkillAction:"skills/remove",
-      editSkillAction:"skills/edit",
-      removeCategory: "categories/remove"
+      addSkillAction: "skills/add",
+      removeSkillAction: "skills/remove",
+      editSkillAction: "skills/edit",
+      removeCategory: "categories/remove",
     }),
-    async createSkill(skill,categoryId){
+    async createSkill(skill, categoryId) {
       const newSkill = {
         ...skill,
-        category:categoryId
+        category: categoryId,
+      };
+      await this.addSkillAction(newSkill);
+      (skill.title = ""), (skill.percent = "");
+    },
+    removeSkill(skill) {
+      this.removeSkillAction(skill);
+    },
+    async editSkill(skill) {
+      try {
+        await this.editSkillAction(skill);
+        skill.editmode = false;
+      } catch (error) {
+        console.log(error.message);
       }
-      await this.addSkillAction(newSkill)
-      skill.title = '',
-      skill.percent = ''
     },
-    removeSkill(skill){
-      this.removeSkillAction(skill)
-    },
-    async editSkill(skill){
-      await this.editSkillAction(skill)
-      skill.editmode = false;
-    },
-   
-   async createCategory(categoryTitle) {
+
+    async createCategory(categoryTitle) {
       try {
         await this.createCategoryAction(categoryTitle);
         this.emptyCatisShow = false;
@@ -95,12 +98,20 @@ export default {
         console.log(error.message);
       }
     },
-     deleteCategory(categoryId) {
-      this.removeCategory(categoryId);
+    async deleteCategory(categoryId) {
+      try {
+        await this.removeCategory(categoryId);
+      } catch (error) {
+        console.log(error.message);
+      }
     },
   },
-  created() {
-    this.fetchCategoriesAction();
+  async created() {
+    try {
+      await this.fetchCategoriesAction();
+    } catch (error) {
+      console.log(error.message);
+    }
   },
 };
 </script>
