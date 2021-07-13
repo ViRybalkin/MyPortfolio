@@ -23,7 +23,7 @@
           <icon symbol="tick" @click="onApprove"></icon>
         </div>
         <div class="button-icon">
-          <icon symbol="cross" @click="$emit('remove')"></icon>
+          <icon symbol="cross" @click="$emit('remove', $event)"></icon>
         </div>
       </div>
     </div>
@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import icon from "../../components/icon/icon.vue";
+import appInput from "../input/input";
 import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
 export default {
   mixin: [ValidatorMixin],
@@ -50,6 +52,11 @@ export default {
     },
     editModeByDefault: Boolean,
     blocked: Boolean,
+  },
+  components: {
+    appInput,
+    Validator,
+    icon,
   },
   data() {
     return {

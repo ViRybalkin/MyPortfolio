@@ -1,11 +1,15 @@
 export default {
   namespaced: true,
   state: {
+    isLoading:false,
     data: [],
   },
   mutations: {
     SET_CATEGORIES: (state, categories) => (state.data = categories),
-    ADD_CATEGORIES: (state, category) => state.data.unshift(category),
+    ADD_CATEGORIES(state, category) {
+      category.skills=[];
+      state.data.unshift(category);
+  },
     REMOVE_CATEGORY: (state, categoryIdToRemove) => {
       state.data = state.data.filter(category => category.id !== categoryIdToRemove);
       return state.data;
@@ -35,7 +39,6 @@ export default {
         if (category.id === skillToEdit.category) {
           editSkillInCategory(category);
         }
-
         return category;
       }
       state.data = state.data.map(findCategory);
@@ -47,13 +50,16 @@ export default {
         const { data } = await this.$axios.post("/categories", { title });
         commit("ADD_CATEGORIES", data);
       } catch (error) {
-        throw new Error("произошла ошибка");
+        throw new Error(error);
       }
     },
     async fetch({ commit }) {
+      isLoading = true;
       try {
-        const { data } = await this.$axios.get("/categories/468");
+        const {data: {user}} = await this.$axios.get('/user')
+        const { data } = await this.$axios.get(`/categories/${user.id}`)
         commit("SET_CATEGORIES", data);
+        isLoading = false;
       } catch (error) {
         console.log(error);
       }

@@ -6,7 +6,7 @@ export default {
         const { data } = await this.$axios.post("/skills", skill);
         commit("categories/ADD_SKILL", data, { root: true });
       } catch (error) {
-        throw new Error("Ошибка");
+        throw new Error(error);
       }
     },
     async remove({ commit }, skillToRemove) {
@@ -16,7 +16,7 @@ export default {
         );
         commit("categories/REMOVE_SKILL", skillToRemove, { root: true });
       } catch (error) {
-        throw new Error("Ошибка");
+        throw new Error(error);
       }
     },
     async edit({ commit }, skillToEdit) {
@@ -27,7 +27,7 @@ export default {
         );
         commit("categories/EDIT_SKILL", data.skill, { root: true });
       } catch (error) {
-        throw new Error(error.message);
+        throw new Error(error);
       }
     },
   },

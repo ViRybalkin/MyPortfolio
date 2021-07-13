@@ -1,12 +1,12 @@
 <template>
   <div class="about-page-component">
     <div class="page-content">
-      <div class="container-content" v-if="categories.length">
+      <div class="container-content" v-if="!isLoading">
         <div class="header">
           <div class="title">Блок "Обо мне"</div>
           <iconed-button
             type="iconed"
-            v-if="!emptyCatisShow"
+            v-if="emptyCatisShow === false"
             @click="emptyCatisShow = true"
             title="Добавить группу"
           />
@@ -14,7 +14,7 @@
         <div class="skills">
           <li class="item" v-if="emptyCatisShow">
             <category
-              @remove="!emptyCatisShow"
+              @remove="emptyCatisShow = false "
               @approve="createCategory"
               empty
             />
@@ -31,9 +31,9 @@
           </li>
         </div>
       </div>
-      <div class="container-content" v-else>
+     <div class="container-content" v-else>
         <div class="container-content-loading">
-          <div class="loader"></div>
+           <div class="loader"></div>
         </div>
         <h1 class="loading__title">Loading..</h1>
       </div>
@@ -59,16 +59,16 @@ export default {
   computed: {
     ...mapState("categories", {
       categories: (state) => state.data,
+      isLoading: (state) => state.isLoading
     }),
   },
   methods: {
     ...mapActions({
       createCategoryAction: "categories/create",
       fetchCategoriesAction: "categories/fetch",
+      removeCategory: "categories/remove",
       addSkillAction: "skills/add",
       removeSkillAction: "skills/remove",
-      editSkillAction: "skills/edit",
-      removeCategory: "categories/remove",
     }),
     async createSkill(skill, categoryId) {
       const newSkill = {
@@ -86,7 +86,7 @@ export default {
         await this.editSkillAction(skill);
         skill.editmode = false;
       } catch (error) {
-        console.log(error.message);
+        throw new Error(error)
       }
     },
 
@@ -95,24 +95,21 @@ export default {
         await this.createCategoryAction(categoryTitle);
         this.emptyCatisShow = false;
       } catch (error) {
-        console.log(error.message);
+        throw new Error(error)
       }
     },
     async deleteCategory(categoryId) {
       try {
         await this.removeCategory(categoryId);
       } catch (error) {
-        console.log(error.message);
+        throw new Error(error)
       }
     },
   },
   async created() {
-    try {
       await this.fetchCategoriesAction();
-    } catch (error) {
-      console.log(error.message);
-    }
   },
+
 };
 </script>
 
