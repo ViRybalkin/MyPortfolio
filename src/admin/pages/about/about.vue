@@ -1,7 +1,7 @@
 <template>
   <div class="about-page-component">
     <div class="page-content">
-      <div class="container-content" v-if="!isLoading">
+      <div class="container-content" >
         <div class="header">
           <div class="title">Блок "Обо мне"</div>
           <iconed-button
@@ -14,7 +14,7 @@
         <div class="skills">
           <li class="item" v-if="emptyCatisShow">
             <category
-              @remove="emptyCatisShow = false "
+               @remove="emptyCatisShow = false "
               @approve="createCategory"
               empty
             />
@@ -31,12 +31,12 @@
           </li>
         </div>
       </div>
-     <div class="container-content" v-else>
+      <div class="container-content" v-if="isLoading">
         <div class="container-content-loading">
-           <div class="loader"></div>
+          <div class="loader"></div>
         </div>
         <h1 class="loading__title">Loading..</h1>
-      </div>
+      </div> 
     </div>
   </div>
 </template>
@@ -58,8 +58,8 @@ export default {
   },
   computed: {
     ...mapState("categories", {
-      categories: (state) => state.data,
-      isLoading: (state) => state.isLoading
+      isLoading: (state) => state.isLoading,
+      categories: (state) => state.data
     }),
   },
   methods: {
@@ -68,6 +68,7 @@ export default {
       fetchCategoriesAction: "categories/fetch",
       removeCategory: "categories/remove",
       addSkillAction: "skills/add",
+      editSkillAction: "skills/edit",
       removeSkillAction: "skills/remove",
     }),
     async createSkill(skill, categoryId) {
@@ -109,7 +110,6 @@ export default {
   async created() {
       await this.fetchCategoriesAction();
   },
-
 };
 </script>
 

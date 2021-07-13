@@ -5,6 +5,7 @@ export default {
     data: [],
   },
   mutations: {
+    SET_LOADING: (state, value) => (state.isLoading = value),
     SET_CATEGORIES: (state, categories) => (state.data = categories),
     ADD_CATEGORIES(state, category) {
       category.skills=[];
@@ -42,7 +43,7 @@ export default {
         return category;
       }
       state.data = state.data.map(findCategory);
-    }
+    },
   },
   actions: {
     async create({ commit }, title) {
@@ -54,12 +55,12 @@ export default {
       }
     },
     async fetch({ commit }) {
-      isLoading = true;
+      commit("SET_LOADING", true);
       try {
         const {data: {user}} = await this.$axios.get('/user')
         const { data } = await this.$axios.get(`/categories/${user.id}`)
         commit("SET_CATEGORIES", data);
-        isLoading = false;
+        commit("SET_LOADING", false);
       } catch (error) {
         console.log(error);
       }
