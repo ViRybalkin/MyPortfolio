@@ -21,7 +21,7 @@
 const links = [
   { id: 0, title: "Обо мне", alias: "", active: false },
   { id: 1, title: "Работы", alias: "works", active: true },
-  { id: 2, title: "Отзывы", alias: "reviews", active: false },
+  { id: 2, title: "Отзывы", alias: "review", active: false },
 ];
 export default {
   data() {

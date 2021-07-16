@@ -2,15 +2,15 @@
   <div class="works-page-component page-component">
     <div class="page-content">
       <div class="container">
-        <div class="page-header">
-          <div class="page-title">Блок "Работы"</div>
+        <div class="header">
+          <div class="title">Блок "Работы"</div>
         </div>
         <div class="form">
           <app-form />
         </div>
         <ul class="cards">
           <li class="item" v-for="work in works" :key="work.id">
-            <work-card :work="work" />
+            <work-card :work="work" @remove="removeWork" />
           </li>
         </ul>
       </div>
@@ -32,7 +32,11 @@ export default {
   methods: {
     ...mapActions({
       fetchWorks: "works/fetch",
+      removeWorks: "works/remove",
     }),
+    removeWork(id) {
+      this.removeWorks.id;
+    },
   },
   mounted() {
     this.fetchWorks();

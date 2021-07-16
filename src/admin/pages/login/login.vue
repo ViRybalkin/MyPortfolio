@@ -2,7 +2,7 @@
   <div class="login-page-component">
     <div class="content">
       <form class="form" @submit.prevent="handleSubmit">
-        <div class="form__title">Авторизация</div>
+        <div class="form-title">Авторизация</div>
         <div class="row">
           <app-input
             title="Логин"
@@ -31,14 +31,12 @@
     </div>
   </div>
 </template>
-
 <script>
 import appInput from "../../components/input";
 import appButton from "../../components/button";
 import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
 import $axios from "../../request";
 import { mapActions } from "vuex";
-
 export default {
   mixins: [ValidatorMixin],
   validators: {
@@ -60,16 +58,19 @@ export default {
   methods: {
     ...mapActions({
       showTooltip: "tooltips/show",
+      login: "user/login",
     }),
     async handleSubmit() {
-      if (await !this.$validate()) return;
-      this.isSubmitDisabled = true;
+      if ((await this.$validate()) === false) return;
 
+      this.isSubmitDisabled = true;
       try {
         const response = await $axios.post("/login", this.user);
         const token = response.data.token;
         localStorage.setItem("token", token);
-        $axios.defaults.headers["Autorization"] = `Bearer ${token}`;
+        $axios.defaults.headers["Authorization"] = `Bearer ${token}`;
+        const userResponse = await $axios.get("/user");
+        this.login(userResponse.data.user);
         this.$router.replace("/");
       } catch (error) {
         this.showTooltip({
@@ -84,4 +85,4 @@ export default {
 };
 </script>
 
-<style scoped src="./login.pcss"></style>
+<style lang="postcss" scoped src="./login.pcss"></style>

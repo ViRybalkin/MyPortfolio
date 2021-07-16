@@ -10,6 +10,9 @@ export default {
     SET_WORKS(state, works) {
       state.data = works;
     },
+    REMOVE_WORKS(state, id) {
+      state.data = state.data.filter((item) => item.id !== id);
+    },
   },
   actions: {
     async add({ commit }, newWork) {
@@ -32,6 +35,30 @@ export default {
         const { data } = await this.$axios.get("/works/1");
         commit("SET_WORKS", data);
       } catch (error) {
+        console.log("error");
+      }
+    },
+    async remove({ commit, dispatch }, id) {
+      try {
+        const { data } = await this.$axios.delete(`/works/${id}`);
+        commit("REMOVE_WORKS", id);
+        dispatch(
+          "tooltips/show",
+          {
+            text: "Работа удалена",
+            type: "success",
+          },
+          { root: true }
+        );
+      } catch (error) {
+        dispatch(
+          "tooltips/show",
+          {
+            text: "Работа не далена" + error,
+            type: "error",
+          },
+          { root: true }
+        );
         console.log("error");
       }
     },
