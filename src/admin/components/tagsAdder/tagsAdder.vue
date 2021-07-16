@@ -1,21 +1,18 @@
 <template>
   <div class="tags-adder-component">
-    <app-input 
-      title="Добавление тега" 
+    <app-input
+      title="Добавление тега"
       v-model="currentTags"
       @input="$emit('change', currentTags)"
     />
     <ul class="tags">
-      <li class="tag"
+      <li
+        class="tag"
         v-for="(tag, index) in tagsArray"
         :key="`${tag}${index}`"
         v-if="tag.trim()"
       >
-        <tag
-          interactive 
-          :title="tag"
-          @click="removeTag(tag)"
-        /> 
+        <tag interactive :title="tag" @click="removeTag(tag)" />
       </li>
     </ul>
   </div>
@@ -31,23 +28,23 @@ export default {
   },
   props: {
     tags: {
-      type: String, 
-      default: ""
-    }
+      type: String,
+      default: "",
+    },
   },
   model: {
     prop: "tags",
-    event: "change"
+    event: "change",
   },
   data() {
     return {
-      currentTags: this.tags
-    }
+      currentTags: this.tags,
+    };
   },
   computed: {
     tagsArray() {
-      return this.currentTags.trim().split(',');
-    }
+      return this.tags.trim().split(",");
+    },
   },
   methods: {
     removeTag(tag) {
@@ -57,17 +54,17 @@ export default {
       tags.splice(tagNdx, 1);
       this.currentTags = tags.join(", ");
       this.$emit("change", this.currentTags);
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="postcss" scoped>
-  .tags {
-    display: flex;
-    margin-top: 20px;
-  }
-  .tag {
-    margin-right: 10px;
-  }
+.tags {
+  display: flex;
+  margin-top: 20px;
+}
+.tag {
+  margin-right: 10px;
+}
 </style>

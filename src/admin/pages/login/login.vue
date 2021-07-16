@@ -59,26 +59,26 @@ export default {
   components: { appButton, appInput },
   methods: {
     ...mapActions({
-      showTooltip:'tooltips/show'
+      showTooltip: "tooltips/show",
     }),
     async handleSubmit() {
-      if ( await !this.$validate()) return;
-        this.isSubmitDisabled = true;
+      if (await !this.$validate()) return;
+      this.isSubmitDisabled = true;
 
-        try {
-          const response = await $axios.post("/login", this.user)
-          const token = response.data.token;
-          localStorage.setItem("token", token);
-          $axios.defaults.headers["Autorization"] = `Bearer ${token}`;
-          this.$router.replace("/");
-        } catch (error) {
-          this.showTooltip({
-            text:error.response.data.error,
-            type:"error"
-          })
-        } finally{
-          this.isSubmitDisabled = false;
-        }
+      try {
+        const response = await $axios.post("/login", this.user);
+        const token = response.data.token;
+        localStorage.setItem("token", token);
+        $axios.defaults.headers["Autorization"] = `Bearer ${token}`;
+        this.$router.replace("/");
+      } catch (error) {
+        this.showTooltip({
+          text: error.response.data.error,
+          type: "error",
+        });
+      } finally {
+        this.isSubmitDisabled = false;
+      }
     },
   },
 };
