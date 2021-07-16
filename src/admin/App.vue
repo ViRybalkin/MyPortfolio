@@ -1,56 +1,37 @@
 <template >
   <div class="app-container">
-    <headline title="Панель администрирования">
-      <user />
-    </headline>
-    <navigation />
-    <div class="page-content">
-      <div class="container-content">
-        <div class="header">
-          <div class="title">Блок "Обо мне"</div>
-          <iconed-button
-            type="iconed"
-            v-if="!emptyCatisShow"
-            @click="emptyCatisShow = true"
-            title="Добавить группу"
-          />
-        </div>
-        <div class="skills">
-          <li class="item" v-if="emptyCatisShow">
-            <category @remove="!emptyCatisShow" empty />
-          </li>
-          <li class="item" v-for="category in categories" :key="category.id">
-            <category :title="category.category" :skills="category.skills" />
-          </li>
-        </div>
+   <router-view name="header"/>
+   <router-view />
+    <div :class="['notify-container', {active: isTooltipShown}]">
+     <div class="notification">
+       <notification 
+      :text="tooltipText"
+      :type="tooltipType"
+      @click="hideTooltip"
+       />
       </div>
-    </div>
+   </div>
   </div>
 </template>
 
 <script>
-import user from "./components/user/user";
-import headline from "./components/headline/headline";
-import navigation from "./components/navigation/navigation";
-import button from "./components/button";
-import category from "./components/categoty/category";
+import notification from "./components/notification";
+import { mapState, mapActions } from "vuex";
 export default {
-  components: {
-    headline,
-    user,
-    navigation,
-    iconedButton: button,
-    category,
-  },
-  data() {
-    return {
-      categories: [],
-      emptyCatisShow: false,
-    };
-  },
-  created() {
-    this.categories = require("./data/categories.json");
-  },
+components:{notification},
+methods:{
+  ...mapActions({
+    hideTooltip:'tooltips/hide'
+  })
+},
+computed:{
+  ...mapState('tooltips',{
+    isTooltipShown:state => state.isShown,
+    tooltipText:state => state.text,
+    tooltipType:state => state.type
+  })
+  
+  }
 };
 </script>
 

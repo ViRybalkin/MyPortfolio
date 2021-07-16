@@ -61,9 +61,6 @@ export default {
 <style lang="postcss">
 .item {
   margin-bottom: 30px;
-  &:last-child {
-    margin-bottom: 0;
-  }
 }
 
 .bottom-line {
