@@ -32,7 +32,10 @@ export default {
 
     async fetch({ commit }) {
       try {
-        const { data } = await this.$axios.get("/works/1");
+        const {
+          data: { user },
+        } = await this.$axios.get(`/user`);
+        const { data } = await this.$axios.get(`/works/${user.id}`);
         commit("SET_WORKS", data);
       } catch (error) {
         console.log("error");
@@ -54,7 +57,7 @@ export default {
         dispatch(
           "tooltips/show",
           {
-            text: "Работа не далена" + error,
+            text: "Работа не удалена" + error,
             type: "error",
           },
           { root: true }

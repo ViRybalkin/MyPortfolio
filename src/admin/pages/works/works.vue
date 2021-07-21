@@ -35,7 +35,7 @@ export default {
       removeWorks: "works/remove",
     }),
     removeWork(id) {
-      this.removeWorks.id;
+      this.removeWorks(id);
     },
   },
   mounted() {

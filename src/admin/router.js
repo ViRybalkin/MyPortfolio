@@ -2,40 +2,35 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import store from "./store";
 import axios from "axios";
+import config from "../../env.paths";
 
 Vue.use(VueRouter);
-
-import header from "./components/header/header";
-import about from "./pages/about/about";
-import login from "./pages/login/login";
-import works from "./pages/works/works";
-import review from "./pages/review/review";
 
 const routes = [
   {
     path: "/",
     components: {
-      default: about,
-      header: header,
+      default: () => import("./pages/about"),
+      header: () => import("./components/header"),
     },
   },
   {
     path: "/works",
     components: {
-      default: works,
-      header: header,
+      default: () => import("./pages/works"),
+      header: () => import("./components/header"),
     },
   },
   {
     path: "/review",
     components: {
-      default: review,
-      header: header,
+      default: () => import("./pages/review/reviews"),
+      header: () => import("./components/header"),
     },
   },
   {
     path: "/login",
-    component: login,
+    component: () => import("./pages/login"),
     meta: {
       public: true,
     },
@@ -44,7 +39,7 @@ const routes = [
 
 const router = new VueRouter({ routes });
 const guard = axios.create({
-  baseURL: "https://webdev-api.loftschool.com/",
+  baseURL: config.baseURL,
 });
 router.beforeEach(async (to, from, next) => {
   const isPublicRoute = to.matched.some((route) => route.meta.public);

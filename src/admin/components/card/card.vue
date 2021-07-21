@@ -1,10 +1,9 @@
 <template>
   <div class="card-component card_plain" v-if="simple">
-    <slot name="default"></slot>
+    <slot name="default">simple</slot>
   </div>
-  <div class="card-component" v-else>
+  <div :class="['card-component', { slim: slim }]" v-else>
     <div class="header">
-      <div class="text" v-text="title"></div>
       <slot name="title" v-if="!!title === false"></slot>
     </div>
     <div class="content">
@@ -18,9 +17,10 @@ export default {
   props: {
     title: {
       type: String,
-      default: "" 
+      default: ""
     },
-    simple: Boolean
+    simple: Boolean,
+    slim: Boolean,
   }
 };
 </script>

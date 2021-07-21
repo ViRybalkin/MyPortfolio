@@ -1,55 +1,56 @@
-import Vue from 'vue';
-import {Swiper,SwiperSlide} from 'vue-awesome-swiper';
+import Vue from "vue";
+import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import "swiper/swiper-bundle.css";
 
 new Vue({
-  el:"#slider-component",
-  template:"#slider-container",
-  components:{
+  el: "#slider-component",
+  template: "#slider-container",
+  components: {
     Swiper,
-    SwiperSlide
+    SwiperSlide,
   },
-  data(){
-    return{
-      reviews:[],
-      sliderOptions:{
-        slidesPerView:1,
-        loop:true,
+  data() {
+    return {
+      reviews: [],
+      sliderOptions: {
+        slidesPerView: 1,
+        loop: true,
         breakpoints: {
           480: {
             slidesPerView: 2,
           },
-        }
-      }
-  }
+        },
+      },
+    };
   },
-  computed:{
-    slider(){
-      return this.$refs["slider"].$swiper
-    }
+  computed: {
+    slider() {
+      return this.$refs["slider"].$swiper;
+    },
   },
-  methods:{
-    requireImagetoArray(data){
-      return data.map(item =>{
-        const requiredImage = require(`../images/content/${item.avatar}`).default;
+  methods: {
+    requireImagetoArray(data) {
+      return data.map((item) => {
+        const requiredImage = require(`../images/content/${item.avatar}`)
+          .default;
         item.avatar = requiredImage;
-        return item
+        return item;
       });
     },
-    slide(direction){
+    slide(direction) {
       switch (direction) {
         case "next":
-          this.slider.slideNext()
+          this.slider.slideNext();
           break;
-          case "prev":
-          this.slider.slidePrev()
-          
+        case "prev":
+          this.slider.slidePrev();
+
           break;
       }
-    }
+    },
   },
-  created(){
-    const data = require('../data/review.json');
-    this.reviews = this.requireImagetoArray(data)
-  }
-})
+  created() {
+    const data = require("../data/review.json");
+    this.reviews = this.requireImagetoArray(data);
+  },
+});

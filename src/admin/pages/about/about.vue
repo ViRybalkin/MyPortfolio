@@ -1,7 +1,7 @@
 <template>
   <div class="about-page-component">
     <div class="page-content">
-      <div class="container-content" >
+      <div class="container-content">
         <div class="header">
           <div class="title">Блок "Обо мне"</div>
           <iconed-button
@@ -14,7 +14,7 @@
         <div class="skills">
           <li class="item" v-if="emptyCatisShow">
             <category
-               @remove="emptyCatisShow = false "
+              @remove="emptyCatisShow = false"
               @approve="createCategory"
               empty
             />
@@ -36,20 +36,19 @@
           <div class="loader"></div>
         </div>
         <h1 class="loading__title">Loading..</h1>
-      </div> 
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import button from "../../components/button";
-import category from "../../components/categoty/category";
 import { mapActions, mapState } from "vuex";
 
 export default {
   components: {
     iconedButton: button,
-    category,
+    category: () => import("../../components/categoty"),
   },
   data() {
     return {
@@ -59,7 +58,7 @@ export default {
   computed: {
     ...mapState("categories", {
       isLoading: (state) => state.isLoading,
-      categories: (state) => state.data
+      categories: (state) => state.data,
     }),
   },
   methods: {
@@ -87,7 +86,7 @@ export default {
         await this.editSkillAction(skill);
         skill.editmode = false;
       } catch (error) {
-        throw new Error(error)
+        throw new Error(error);
       }
     },
 
@@ -96,19 +95,19 @@ export default {
         await this.createCategoryAction(categoryTitle);
         this.emptyCatisShow = false;
       } catch (error) {
-        throw new Error(error)
+        throw new Error(error);
       }
     },
     async deleteCategory(categoryId) {
       try {
         await this.removeCategory(categoryId);
       } catch (error) {
-        throw new Error(error)
+        throw new Error(error);
       }
     },
   },
   async created() {
-      await this.fetchCategoriesAction();
+    await this.fetchCategoriesAction();
   },
 };
 </script>
