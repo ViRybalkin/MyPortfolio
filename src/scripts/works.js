@@ -116,6 +116,7 @@ new Vue({
     console.log(data);
 
     this.works = data.map((item) => {
+      console.log(data);
       item.photo = `https://webdev-api.loftschool.com/${item.photo}`;
       item.tags = item.techs.split(", ");
       item.name = item.title;

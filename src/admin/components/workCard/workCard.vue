@@ -13,7 +13,7 @@
       </div>
       <a :href="work.link" class="link work-link">{{ work.link }}</a>
       <div class="bottom-line">
-        <icon symbol="pencil" title="Править" @click="edit()"></icon>
+        <icon symbol="pencil" title="Править"></icon>
         <icon symbol="cross" title="Удалить" @click="removeWork"></icon>
       </div>
     </div>
@@ -60,10 +60,6 @@ export default {
       createWorkAction: "works/create",
       updateWorkAction: "works/update",
     }),
-    edit() {
-      this.setCurrentWork();
-      this.$emit("edit", this.currentWork);
-    },
     setCurrentWork() {
       this.currentWork = {
         id: this.work.id,
