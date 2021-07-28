@@ -2,9 +2,6 @@
   <card simple>
     <div class="header">
       <img class="image" :src="cover" />
-      <div class="tag">
-        <tags-list :tags="work.techs" />
-      </div>
     </div>
     <div class="content">
       <div class="title work-title">{{ work.title }}</div>
