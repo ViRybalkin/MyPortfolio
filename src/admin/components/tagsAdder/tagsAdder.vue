@@ -1,21 +1,14 @@
 <template>
   <div class="tags-adder-component">
-    <app-input 
-      title="Добавление тега" 
+    <app-input
+      title="Добавление тега"
       v-model="currentTags"
       @input="$emit('change', currentTags)"
+      :error-message="errorMessage"
     />
     <ul class="tags">
-      <li class="tag"
-        v-for="(tag, index) in tagsArray"
-        :key="`${tag}${index}`"
-        v-if="tag.trim()"
-      >
-        <tag
-          interactive 
-          :title="tag"
-          @click="removeTag(tag)"
-        /> 
+      <li v-for="(tag, index) in tagsArray" :key="index" v-if="tag.trim()">
+        <tag interactive :title="tag" @click="removeTag(tag)" />
       </li>
     </ul>
   </div>
@@ -24,6 +17,7 @@
 <script>
 import appInput from "../input";
 import tag from "../tag";
+
 export default {
   components: {
     appInput,
@@ -31,43 +25,55 @@ export default {
   },
   props: {
     tags: {
-      type: String, 
-      default: ""
-    }
+      type: String,
+      default: "",
+    },
+    errorMessage: {
+      type: String,
+      default: "",
+    },
   },
   model: {
     prop: "tags",
-    event: "change"
+    event: "change",
   },
   data() {
     return {
-      currentTags: this.tags
-    }
+      currentTags: this.tags,
+    };
+  },
+  watch: {
+    tags() {
+      this.currentTags = this.tags;
+    },
   },
   computed: {
     tagsArray() {
-      return this.currentTags.trim().split(',');
-    }
+      return this.currentTags.trim().split(",");
+    },
   },
   methods: {
     removeTag(tag) {
       const tags = [...this.tagsArray];
       const tagNdx = tags.indexOf(tag);
+
       if (tagNdx < 0) return;
+
       tags.splice(tagNdx, 1);
       this.currentTags = tags.join(", ");
+
       this.$emit("change", this.currentTags);
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="postcss" scoped>
-  .tags {
-    display: flex;
-    margin-top: 20px;
-  }
-  .tag {
-    margin-right: 10px;
-  }
+.tags {
+  display: flex;
+  margin-top: 20px;
+}
+.tag {
+  margin-right: 10px;
+}
 </style>

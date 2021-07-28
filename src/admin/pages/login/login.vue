@@ -31,14 +31,12 @@
     </div>
   </div>
 </template>
-
 <script>
 import appInput from "../../components/input";
 import appButton from "../../components/button";
 import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
 import $axios from "../../request";
 import { mapActions } from "vuex";
-
 export default {
   mixins: [ValidatorMixin],
   validators: {
@@ -59,29 +57,32 @@ export default {
   components: { appButton, appInput },
   methods: {
     ...mapActions({
-      showTooltip:'tooltips/show'
+      showTooltip: "tooltips/show",
+      login: "user/login",
     }),
     async handleSubmit() {
-      if ( await !this.$validate()) return;
-        this.isSubmitDisabled = true;
+      if ((await this.$validate()) === false) return;
 
-        try {
-          const response = await $axios.post("/login", this.user)
-          const token = response.data.token;
-          localStorage.setItem("token", token);
-          $axios.defaults.headers["Autorization"] = `Bearer ${token}`;
-          this.$router.replace("/");
-        } catch (error) {
-          this.showTooltip({
-            text:error.response.data.error,
-            type:"error"
-          })
-        } finally{
-          this.isSubmitDisabled = false;
-        }
+      this.isSubmitDisabled = true;
+      try {
+        const response = await $axios.post("/login", this.user);
+        const token = response.data.token;
+        localStorage.setItem("token", token);
+        $axios.defaults.headers["Authorization"] = `Bearer ${token}`;
+        const userResponse = await $axios.get("/user");
+        this.login(userResponse.data.user);
+        this.$router.replace("/");
+      } catch (error) {
+        this.showTooltip({
+          text: error.response.data.error,
+          type: "error",
+        });
+      } finally {
+        this.isSubmitDisabled = false;
+      }
     },
   },
 };
 </script>
 
-<style scoped src="./login.pcss"></style>
+<style lang="postcss" scoped src="./login.pcss"></style>
