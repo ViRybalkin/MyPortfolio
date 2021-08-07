@@ -27,13 +27,13 @@ const display = {
   computed: {
     reversedWorks() {
       const works = [...this.works];
-      return works.slice(0, 3).reverse();
+      return works.slice(0, 4).reverse();
     },
   },
 };
 const tags = {
   props: ["tags"],
-  template: "#preview-tag",
+  template: "#preview-tags",
 };
 const info = {
   props: ["currentWork"],
@@ -43,7 +43,7 @@ const info = {
   },
   computed: {
     tagsArray() {
-      return this.currentWork.techs.split(",");
+      return this.currentWork.skills.split(",");
     },
   },
 };
@@ -77,21 +77,14 @@ new Vue({
       if (index < 0) this.currentIndex = worksNumber;
       if (index > this.works.length - 1) this.currentIndex = 0;
     },
-    // transform(){
-    //   this.works.map(item =>{
-    //     item.image = config.BASE_URL + item.photo
-    //     item.tags = item.techs.split(', ')
-    //     item.name = item.title
-    //   })
-    // },
-    // requireImagesToArray(data) {
-    //   return data.map((item) => {
-    //     const requiredImage = require(`../images/content/slider/${item.photo}`)
-    //       .default;
-    //     item.photo = requiredImage;
-    //     return item;
-    //   });
-    // },
+    requireImagesToArray(data) {
+      return data.map((item) => {
+        const requiredImage = require(`../images/content/slider/${item.photo}`)
+          .default;
+        item.photo = requiredImage;
+        return item;
+      });
+    },
     slide(direction) {
       const lastItem = this.works[this.works.length - 1];
       switch (direction) {
@@ -108,19 +101,8 @@ new Vue({
       }
     },
   },
-  async created() {
-    const {
-      data: { user },
-    } = await axios.get("/user");
-    const { data } = await axios.get(`/works/${user.id}`);
-    console.log(data);
-
-    this.works = data.map((item) => {
-      console.log(data);
-      item.photo = `https://webdev-api.loftschool.com/${item.photo}`;
-      item.tags = item.techs.split(", ");
-      item.name = item.title;
-      return item;
-    });
+  created() {
+    const data = require("../data/works.json");
+    this.works = this.requireImagesToArray(data);
   },
 });

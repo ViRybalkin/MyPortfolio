@@ -1,34 +1,74 @@
 [
   {
-    "id":1,
-    "title":"1 Сайт школы образования",
-    "skills":"1HTML,Css,Javascript",
-    "photo":"slider-1.jpg",
-    "link":"#",
-    "desc":"Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
+    "id": 1,
+    "title": "Личное Портфолио",
+    "skills": "Pug,PostCSS,Js,Vue.js,LoftSchool API,WebPack,StoryBook",
+    "photo": "MyPortfolio.jpg",
+    "link": "https://virybalkin.github.io/MyPortfolio/dist/",
+    "desc": "Лендинг-порфолио Frontend разработчика"
   },
   {
-    "id":2,
-    "title":"2 Сайт школы образования",
-    "skills":"2HTML,Css,Javascript",
-    "photo":"slider-2.jpg",
-    "link":"#",
-    "desc":"Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
+    "id": 2,
+    "title": "Chocco",
+    "skills": "HTML,Css,Js,Yandex maps API,Gulp,YouTube API",
+    "photo": "Chocco.jpg",
+    "link": "https://virybalkin.github.io/Chocco/dist/index.html",
+    "desc": "Лендин для заказа и получения информации о батончиках Chocco"
   },
   {
-    "id":3,
-    "title":"3 Сайт школы образования",
-    "skills":"3HTML,Css,Javascript",
-    "photo":"slider-3.jpg",
-    "link":"#",
-    "desc":"Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
+    "id": 3,
+    "title": "Bankist",
+    "skills": "HTML,Css,Js",
+    "photo": "bankist.jpg",
+    "link": "https://virybalkin.github.io/Bankist/",
+    "desc": "Виртуальный банк в котором можно следить за своими расходами, доходами и передавать денежные средства другим пользователям. Для авторизации в приложении можно использовать: JS 1111, JD 2222, STW 3333, SH 4444"
   },
   {
-    "id":4,
-    "title":"4 Сайт школы образования",
-    "skills":"4HTML,Css,Javascript",
-    "photo":"slider-4.jpg",
-    "link":"#",
-    "desc":"Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!"
+    "id": 4,
+    "title": "Pig Game",
+    "skills": "HTML,Css,Js",
+    "photo": "pig.jpg",
+    "link": "https://virybalkin.github.io/PigGame/",
+    "desc": "Игра в которой надо набрать 100 очков быстрей противника"
+  },
+  {
+    "id": 5,
+    "title": "Лендинг с портфолио",
+    "skills": "HTML,Css,Jquery",
+    "photo": "portfolio.jpg",
+    "link": "https://virybalkin.github.io/Portfolio/",
+    "desc": "Лендинг с портфолии веб-разработчика"
+  },
+  {
+    "id": 6,
+    "title": "Air-Asia",
+    "skills": "HTML,Css",
+    "photo": "Air-Asia.jpg",
+    "link": "https://virybalkin.github.io/Air-Asia/Air-Asia/welcome.html",
+    "desc": "Многостраничный сайт для получения информации и заказа туров по Азии"
+  },
+  {
+    "id": 7,
+    "title": "Guess my number",
+    "skills": "HTML,Css,Js",
+    "photo": "number.jpg",
+    "link": "https://virybalkin.github.io/GuessMyNumber/",
+    "desc": "Игра в которой надо угадать номер между 1 и 20"
+  },
+  {
+    "id": 8,
+    "title": "Modal Window",
+    "skills": "HTML,Css,Js",
+    "photo": "modal.jpg",
+    "link": "https://virybalkin.github.io/ModalWindow/",
+    "desc": "Приложение для монипуляции с DOM"
+  },
+  {
+    "id": 9,
+    "title": "GetWeather",
+    "skills": "HTML,Css,Js,Openweather API,Fecth API",
+    "photo": "weather.jpg",
+    "link": "https://virybalkin.github.io/GetWeather/",
+    "desc": "Приложение для получения погоды"
   }
 ]
