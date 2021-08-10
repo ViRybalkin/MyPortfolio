@@ -1,8 +1,8 @@
 //Получение элементов
 const burgerBtn = document.querySelector(".header-tablets__menu");
 const overlay = document.querySelector(".overlay");
-const html = document.querySelector("html");
-const body = document.body;
+// const html = document.querySelector("html");
+// const body = document.body;
 const menuList = document.querySelector(".menu__list-mobile");
 const socialList = document.querySelector(".social__list-mobile");
 
@@ -10,8 +10,8 @@ const socialList = document.querySelector(".social__list-mobile");
 burgerBtn.addEventListener("click", () => {
   overlay.classList.toggle("overlay-active");
   burgerBtn.classList.toggle("header__tablets__menu-active");
-  body.classList.toggle("position-lock");
-  html.classList.toggle("position-lock");
+  // body.classList.toggle("position-lock");
+  // html.classList.toggle("position-lock");
 });
 
 //Добавление слушателя события по родителю
@@ -25,6 +25,6 @@ overlay.addEventListener("click", closeOverlay);
 function closeOverlay() {
   overlay.classList.remove("overlay-active");
   burgerBtn.classList.remove("header__tablets__menu-active");
-  body.classList.remove("position-lock");
-  html.classList.remove("position-lock");
+  // body.classList.remove("position-lock");
+  // html.classList.remove("position-lock");
 }

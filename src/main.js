@@ -7,3 +7,4 @@ import "./scripts/skills";
 import "./scripts/works";
 import "./scripts/slider";
 import "./scripts/overlay";
+import "./scripts/scroll";
