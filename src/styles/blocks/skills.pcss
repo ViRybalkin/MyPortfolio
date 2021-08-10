@@ -1,5 +1,5 @@
 .skills{
-
+  width: 100%;
   &__wrapper{
     display: flex;
     justify-content: flex-end;
@@ -19,8 +19,13 @@
   &-row{
     &__list{
       display: flex;
-      @include phones{
+      @include tablets{
         flex-wrap: wrap;
+        justify-content: center;
+      }
+      @include phones{
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
       }
     }
@@ -30,7 +35,7 @@
       }
     }
     &__item + &__item{
-      margin-left: 54px;
+      margin-left: 70px;
       @include tablets {
         margin-left: 30px;
       }

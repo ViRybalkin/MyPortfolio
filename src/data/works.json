@@ -57,14 +57,6 @@
   },
   {
     "id": 8,
-    "title": "Modal Window",
-    "skills": "HTML,Css,Js",
-    "photo": "modal.jpg",
-    "link": "https://virybalkin.github.io/ModalWindow/",
-    "desc": "Приложение для монипуляции с DOM"
-  },
-  {
-    "id": 9,
     "title": "GetWeather",
     "skills": "HTML,Css,Js,Openweather API,Fecth API",
     "photo": "weather.jpg",

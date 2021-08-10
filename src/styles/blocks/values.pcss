@@ -23,13 +23,15 @@
         width: 60%;
       }
       @include tablets{
-        display: flex;
+      display: flex;
       flex-direction: column;
       align-items: center;
       }
       @include phones{
         width: 100%;
-        align-items: stretch;
+        margin: 0;
+        text-align: center;
+        align-items: center;
       }
     }
     &-text{
