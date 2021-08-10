@@ -32,4 +32,4 @@ $ npm run имя_скрипта
 $ yarn имя_скрипта
 ```
 
-#### Посмотрет ьпроект можно по [ссылке](https://virybalkin.github.io/MyPortfolio/dist/)
+#### Посмотреть проект можно по [ссылке](https://virybalkin.github.io/MyPortfolio/dist/)
