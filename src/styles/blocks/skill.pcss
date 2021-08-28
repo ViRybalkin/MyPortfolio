@@ -17,31 +17,7 @@
     font-weight: 600;
     color: rgba($dark,.5);
     padding: 14px 30px;
-    cursor: default;
-    transition: all 0.3s;
-    background: #f3f6f9;
-    &:before{
-      content: "";
-      position: absolute;
-      z-index: -1;
-      border-radius: 40px;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: $blue;
-      opacity: 0.8;
-      transform: scale(0);
-      transition: transform 0.3s ease-out;
-    }
-    &:hover,
-    &:focus{
-      color: white;
-    }
-    &:hover:before,
-    &:focus::before{
-      transform: scale(1);
-    }
+    background: #f3f6f9; 
   }
 }
 

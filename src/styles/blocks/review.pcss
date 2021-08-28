@@ -4,17 +4,18 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 300px;
-    width: 75%;
+    height: 400px;
+    width: 85%;
     @include desktop{
-      height: 350px;
+      height: 450px;
+      width: 100%;
     }
     @include tablets{
-      height: 400px;
+      height: 350px;
       width: 95%;
     }
     @include phones{
-      height: 350px;
+      height: 400px;
       width: 90%;
       padding-left: 0;
     }
@@ -70,7 +71,12 @@
     height: 75px;
   }
   &__photo{
+    border: 2px solid transparent;
     border-radius: 50%;
+    transition: .4s;
+    &:hover{
+      border: 2px solid $icon-color-hover;
+    }
   }
   &__name{
   font-weight: 600;

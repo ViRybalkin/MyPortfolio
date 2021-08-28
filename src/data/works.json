@@ -17,6 +17,14 @@
   },
   {
     "id": 3,
+    "title": "Forkify",
+    "skills": "HTML,Css,Js,Fetch API,Local Storage",
+    "photo": "Forkify.jpg",
+    "link": "https://virybalkin.github.io/Forkify/dist/",
+    "desc": "Приложение для поиска и добавляние рецептов"
+  },
+  {
+    "id": 4,
     "title": "Bankist",
     "skills": "HTML,Css,Js",
     "photo": "bankist.jpg",
@@ -24,7 +32,7 @@
     "desc": "Виртуальный банк в котором можно следить за своими расходами, доходами и передавать денежные средства другим пользователям. Для авторизации в приложении можно использовать: JS 1111, JD 2222, STW 3333, SH 4444"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Bankist website",
     "skills": "HTML,Css,Js,Intersection Observer API,DOM API",
     "photo": "Bankist_website.jpg",
@@ -32,7 +40,23 @@
     "desc": "Лендинг для банка с использование Intersection Observer API и DOM API"
   },
   {
-    "id": 5,
+    "id": 6,
+    "title": "Mapty",
+    "skills": "HTML,Css,Js,Geolocation API,Leaflet library",
+    "photo": "Mapty.jpg",
+    "link": "https://virybalkin.github.io/Mapty/",
+    "desc": "Приложение для записи спортивных активностей,список активностей которые можно сохранить - бег, езда на велосипеде"
+  },
+  {
+    "id": 7,
+    "title": "Where Am I",
+    "skills": "HTML,Css,Js,Fetch API,Rest countries API,Geocode API",
+    "photo": "WhereAmI.jpg",
+    "link": "https://virybalkin.github.io/WhereAmI/",
+    "desc": "Пприложение в котором можно посмотреть данные своей или любой страны и ее соседей"
+  },
+  {
+    "id": 8,
     "title": "Pig Game",
     "skills": "HTML,Css,Js",
     "photo": "pig.jpg",
@@ -40,7 +64,7 @@
     "desc": "Игра в которой надо набрать 100 очков быстрей противника"
   },
   {
-    "id": 6,
+    "id": 9,
     "title": "Лендинг с портфолио",
     "skills": "HTML,Css,Jquery",
     "photo": "portfolio.jpg",
@@ -48,7 +72,7 @@
     "desc": "Лендинг с портфолии веб-разработчика"
   },
   {
-    "id": 7,
+    "id": 10,
     "title": "Air-Asia",
     "skills": "HTML,Css",
     "photo": "Air-Asia.jpg",
@@ -56,7 +80,7 @@
     "desc": "Многостраничный сайт для получения информации и заказа туров по Азии"
   },
   {
-    "id": 8,
+    "id": 11,
     "title": "Guess my number",
     "skills": "HTML,Css,Js",
     "photo": "number.jpg",
@@ -64,7 +88,7 @@
     "desc": "Игра в которой надо угадать номер между 1 и 20"
   },
   {
-    "id": 9,
+    "id": 12,
     "title": "GetWeather",
     "skills": "HTML,Css,Js,Openweather API,Fecth API",
     "photo": "weather.jpg",

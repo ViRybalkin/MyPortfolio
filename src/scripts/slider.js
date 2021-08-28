@@ -16,7 +16,7 @@ new Vue({
         slidesPerView: 1,
         loop: true,
         breakpoints: {
-          480: {
+          768: {
             slidesPerView: 2,
           },
         },

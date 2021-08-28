@@ -17,7 +17,8 @@ script(type="text/x-template")#slider-container
             .user-display 
               .user-display__avatar 
                 .user-display__style
-                  img(:src="review.avatar", alt="user-photo" height="100%" width="100%").user-display__photo
+                  a(:href="review.link" target="_blank").user-display__link
+                    img(:src="review.avatar", alt="user-photo" height="100%" width="100%").user-display__photo
               .user-display__text
                 .user-display__name 
                   p {{review.name}}
